@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bezant — Save with intent</title>
+<meta name="description" content="Bezant turns saving into a daily streak. Log a spend in one tap, keep the flame alive, and watch every goal fill — with a real date on it. On iPhone and Apple Watch. Private by default, free." />
+<meta name="theme-color" content="#070908" />
+<link rel="icon" type="image/svg+xml" href="landing/favicon.svg" />
+<link rel="apple-touch-icon" href="landing/favicon.svg" />
+<meta name="apple-mobile-web-app-title" content="Bezant" />
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Bezant" />
+<meta property="og:title" content="Bezant — Saving, but make it a streak." />
+<meta property="og:description" content="Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it. Private by default, free on iOS." />
+<meta property="og:url" content="https://bezant.app/" />
+<!-- 1200×630 share card, rendered from landing/og-card.svg (absolute URL so scrapers can fetch it) -->
+<meta property="og:image" content="https://bezant.app/landing/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Bezant — Saving, but make it a streak. A private, on-device money app for iPhone." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bezant — Saving, but make it a streak." />
+<meta name="twitter:description" content="Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it." />
+<meta name="twitter:image" content="https://bezant.app/landing/og-image.png" />
+<style>
+  html,body{margin:0;background:#070908;}
+  /* clip stray horizontal overflow without creating a scroll container (keeps sticky nav working) */
+  html{overflow-x:clip;}
+  /* page-level overrides of the shared .lp kit (that kit assumes a fixed artboard) */
+  .lp.page{height:auto;min-height:100vh;overflow:visible;}
+  .lp.page .lp-amb{position:fixed;inset:-20%;}
+
+  /* sticky glass nav */
+  .pg-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,9,8,.7);
+    border-bottom:1px solid rgba(255,255,255,.05);}
+  .pg-nav .lp-nav{padding:16px clamp(18px,5vw,64px);gap:16px;}
+
+  /* hero — fluid padding + fluid headline so it scales smoothly at every width */
+  .pg-hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;
+    padding:clamp(40px,7vw,74px) clamp(18px,5vw,64px) 26px;position:relative;z-index:1;}
+  .pg-h1{font-size:clamp(32px,7.6vw,78px);font-weight:650;letter-spacing:-.045em;line-height:1.03;}
+  .pg-h1 .w{display:inline-block;}
+  .pg-h1 .mint{color:#35E0A1;position:relative;}
+  .pg-h1 .mint::after{content:"";position:absolute;left:2%;right:2%;bottom:6px;height:12px;
+    background:rgba(53,224,161,.18);border-radius:6px;z-index:-1;}
+  .pg-scenes{display:flex;align-items:center;gap:30px;}
+  .pg-btn-pulse{animation:pgPulse 2.6s ease-in-out infinite;}
+  @keyframes pgPulse{0%,100%{box-shadow:0 0 26px -8px #35E0A1}50%{box-shadow:0 0 44px -6px #35E0A1}}
+  /* download placeholder — App Store listing isn't live yet (dashed = not actionable) */
+  .lp .pg-soon,.lp .pg-soon[disabled]{cursor:default;border-style:dashed;opacity:.9;color:#8B928B;}
+
+  /* floating phones + parallax — narrow side padding so the 280px shells fit small screens */
+  .pg-phones{display:flex;justify-content:center;align-items:flex-start;gap:30px;flex-wrap:wrap;
+    padding:46px clamp(12px,4vw,64px) 10px;position:relative;z-index:1;}
+  .pg-ph{transition:transform .25s ease-out;}
+  .pg-ph:hover{transform:translateY(-10px) scale(1.02) !important;}
+
+  /* marquee ticker */
+  .pg-marq{overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);
+    padding:16px 0;margin:60px 0 0;position:relative;z-index:1;background:rgba(14,18,17,.5);}
+  .pg-marq-in{display:flex;gap:14px;width:max-content;}
+  .pg-chip{display:inline-flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:13px;
+    color:#8B928B;border:1px solid rgba(255,255,255,.09);background:#111513;border-radius:99px;
+    padding:9px 16px;white-space:nowrap;}
+  .pg-chip b{color:#E9ECE8;font-weight:600;}
+  .pg-chip .mint{color:#35E0A1;}
+
+  /* sections */
+  .pg-sec{padding:clamp(56px,8vw,84px) clamp(18px,5vw,64px) 0;position:relative;z-index:1;max-width:1240px;margin:0 auto;width:100%;box-sizing:border-box;}
+  .pg-sechead{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;margin-bottom:38px;}
+  .lp .lp-h2{font-size:clamp(25px,5.4vw,34px);}
+
+  /* stats strip */
+  .pg-stats{display:flex;justify-content:center;gap:clamp(28px,7vw,70px);border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);padding:30px 0;}
+  .pg-stat .v{font-family:ui-monospace,monospace;font-size:clamp(30px,7vw,38px);font-weight:700;color:#35E0A1;letter-spacing:-.02em;}
+  .pg-stat .l{font-family:ui-monospace,monospace;font-size:11px;color:#555C58;letter-spacing:.1em;text-transform:uppercase;margin-top:7px;}
+
+  /* spec grid */
+  .pg-spec{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px;}
+
+  /* feature card hover */
+  .lp-feat{transition:transform .25s ease,border-color .25s ease;}
+  .lp-feat:hover{transform:translateY(-6px);border-color:rgba(53,224,161,.3);}
+
+  /* watchOS section — a single watch mockup + three capability points */
+  .pg-watchwrap{display:flex;align-items:center;justify-content:center;gap:clamp(30px,6vw,64px);flex-wrap:wrap;}
+  .pg-watch{position:relative;width:172px;height:206px;flex:0 0 auto;}
+  .pg-watch .case{position:absolute;inset:0;background:#050605;border-radius:52px;box-shadow:0 0 0 2px #1c201d,0 30px 60px -24px rgba(0,0,0,.9);}
+  .pg-watch .crown{position:absolute;right:-4px;top:50%;transform:translateY(-50%);width:6px;height:32px;border-radius:4px;background:#2a2f2c;}
+  .pg-watch .scr{position:absolute;inset:15px;border-radius:40px;overflow:hidden;background:#0A0C0B;
+    background-image:radial-gradient(120% 60% at 84% -6%,rgba(53,224,161,.16),transparent 56%);
+    padding:16px 15px;display:flex;flex-direction:column;gap:9px;}
+  .pg-watch .wn{font-family:ui-monospace,monospace;font-size:8.5px;letter-spacing:.08em;color:#8B928B;}
+  .pg-watch .wv{font-family:ui-monospace,monospace;font-size:21px;font-weight:700;letter-spacing:-.03em;}
+  .pg-watch .wv .c{color:#555C58;}
+  .pg-watch .wgn{font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pg-watch .wgp{font-family:ui-monospace,monospace;font-size:9px;color:#8B928B;}
+  .pg-watch .wflame{margin-top:auto;font-family:ui-monospace,monospace;font-size:10px;font-weight:700;color:#E8A23C;}
+  .pg-watchpts{display:flex;flex-direction:column;gap:18px;max-width:390px;}
+  .pg-wpt{display:flex;gap:13px;align-items:flex-start;}
+  .pg-wpt .ic{width:38px;height:38px;flex:0 0 auto;border-radius:11px;background:rgba(53,224,161,.1);
+    border:1px solid rgba(53,224,161,.22);display:grid;place-items:center;color:#35E0A1;font-size:17px;}
+  .pg-wpt h4{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-bottom:3px;}
+  .pg-wpt p{font-size:13px;line-height:1.55;color:#8B928B;}
+  @media (max-width:640px){.pg-watchpts{max-width:none;}}
+
+  /* footer */
+  .pg-foot{margin-top:90px;padding-left:clamp(18px,5vw,64px);padding-right:clamp(18px,5vw,64px);gap:16px;}
+  .pg-footlinks a:hover{color:#E9ECE8;}
+
+  /* in-page navigation: smooth scroll (motion-gated) + offset for the sticky nav */
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+  section[id]{scroll-margin-top:90px;}
+  .pg-nav .lp-links a{cursor:pointer;}
+  .pg-nav .lp-links a:hover{color:#E9ECE8;}
+
+  /* FAQ accordion */
+  .pg-faq{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto;width:100%;}
+  .pg-q{background:#111513;border:1px solid rgba(255,255,255,.07);border-radius:16px;}
+  .pg-q summary{cursor:pointer;list-style:none;padding:16px 20px;font-size:15.5px;font-weight:600;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .pg-q summary::-webkit-details-marker{display:none;}
+  .pg-q summary::after{content:"+";color:#35E0A1;font-family:ui-monospace,monospace;font-size:18px;font-weight:400;}
+  .pg-q[open] summary::after{content:"–";}
+  .pg-q summary:focus-visible{outline:2px solid #35E0A1;outline-offset:2px;border-radius:14px;}
+  .pg-q p{padding:0 20px 16px;font-size:13.5px;line-height:1.65;color:#8B928B;margin:0;}
+
+  /* scroll reveals + motion (gated) */
+  @media (prefers-reduced-motion: no-preference){
+    .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+    .rv.in{opacity:1;transform:none;}
+    .no-anim .rv{transition:none !important;}
+    .pg-h1:not(.settled) .w{opacity:0;transform:translateY(22px);animation:pgWord .6s cubic-bezier(.2,.8,.2,1) forwards;}
+    .pg-marq-in{animation:pgMarq 36s linear infinite;}
+    .pg-marq:hover .pg-marq-in{animation-play-state:paused;}
+    .pg-ph{animation:lpFloat 8s ease-in-out infinite;}
+  }
+  @keyframes pgWord{to{opacity:1;transform:none}}
+  @keyframes pgMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* interactive demos */
+  .pg-ph{position:relative;}
+  .pg-try{position:absolute;top:-13px;left:50%;transform:translateX(-50%);z-index:4;font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.14em;color:#04130d;background:#35E0A1;padding:5px 13px;border-radius:99px;font-weight:700;box-shadow:0 0 18px -4px #35E0A1;white-space:nowrap;}
+  .dm-amt{text-align:center;font-family:ui-monospace,monospace;font-size:30px;font-weight:700;letter-spacing:-.03em;}
+  .dm-amt .c{color:#555C58;}
+  .dm-cats{display:flex;gap:6px;justify-content:center;}
+  .lp .dm-cat{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;font-size:10.5px;font-weight:600;padding:6px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:#8B928B;cursor:pointer;background:#111513;font-family:inherit;}
+  .lp .dm-cat.on{color:#35E0A1;border-color:rgba(53,224,161,.4);background:rgba(53,224,161,.1);}
+  .dm-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+  .lp .dm-key{height:33px;border-radius:9px;background:#111513;border:1px solid rgba(255,255,255,.07);color:#E9ECE8;font-family:ui-monospace,monospace;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .lp .dm-key:active{background:#161B18;}
+  .lp .dm-logbtn{grid-column:1/-1;height:38px;border-radius:10px;background:#35E0A1;color:#04130d;font-weight:700;font-size:13.5px;cursor:pointer;border:none;font-family:inherit;}
+  .lp .dm-logbtn:active{transform:scale(.98);}
+  .dm-list{display:flex;flex-direction:column;gap:6px;min-height:44px;}
+  .dm-new{position:relative;overflow:hidden;animation:dmIn .45s cubic-bezier(.2,.9,.3,1);}
+  .dm-new::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent,rgba(53,224,161,.25),transparent);transform:translateX(-130%);animation:lpShine 1.1s ease .15s forwards;}
+  @keyframes dmIn{from{opacity:0;transform:translateY(-10px) scale(.96)}to{opacity:1;transform:none}}
+  .dm-flame{display:inline-flex;align-items:center;gap:4px;font-family:ui-monospace,monospace;font-size:12px;font-weight:700;color:#E8A23C;background:rgba(232,162,60,.13);padding:4px 10px;border-radius:99px;}
+  .dm-flame.bump{animation:dmBump .5s cubic-bezier(.2,.9,.3,1);}
+  @keyframes dmBump{30%{transform:scale(1.25)}}
+  .lp .dm-zero{font-size:10.5px;font-weight:600;color:#8B928B;border:1px dashed rgba(255,255,255,.16);padding:6px 11px;border-radius:99px;cursor:pointer;background:none;font-family:inherit;}
+  .lp .dm-zero:active{color:#35E0A1;}
+  .wi-box{background:#111513;border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:8px;}
+  .wi-top{display:flex;justify-content:space-between;font-family:ui-monospace,monospace;font-size:11px;color:#8B928B;}
+  .wi-top b{color:#35E0A1;}
+  .wi-date{text-align:center;font-family:ui-monospace,monospace;font-size:12.5px;color:#8B928B;}
+  .wi-date b{color:#E9ECE8;transition:color .2s;}
+  .wi-date.earlier b{color:#35E0A1;}
+  .wi-soon{color:#35E0A1;font-weight:700;font-family:ui-monospace,monospace;font-size:11.5px;}
+  input.wi-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:rgba(255,255,255,.1);outline:none;cursor:pointer;}
+  input.wi-range::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#35E0A1;box-shadow:0 0 14px -2px #35E0A1;border:none;cursor:grab;}
+
+  /* hero emblem — coins drop into the Bezel bowl */
+  .pg-emblem{position:relative;width:120px;height:120px;}
+  .pg-emblem .pe-coin{position:absolute;left:58px;top:-10px;width:12px;height:12px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,#6df2c4,#1b9f72);box-shadow:0 0 8px -1px #35E0A1;opacity:0;}
+  @keyframes peFall{0%{opacity:0;transform:translate(var(--dx,0),0) scale(.7)}14%{opacity:1}
+    70%{opacity:1;transform:translate(0,72px) scale(.9)}80%,100%{opacity:0;transform:translate(0,76px) scale(.35)}}
+  .pe-c1{animation:peFall 2.7s cubic-bezier(.5,0,.75,1) infinite;--dx:-12px;}
+  .pe-c2{animation:peFall 2.7s cubic-bezier(.5,0,.75,1) .9s infinite;--dx:10px;}
+  .pe-c3{animation:peFall 2.7s cubic-bezier(.5,0,.75,1) 1.8s infinite;--dx:0px;}
+  .pg-emblem .pe-pulse{position:absolute;left:64px;top:74px;width:64px;height:64px;margin:-32px;border-radius:50%;
+    border:2px solid #35E0A1;opacity:0;}
+  @keyframes pePulse{0%,68%{opacity:0;transform:scale(.55)}75%{opacity:.65;transform:scale(.85)}100%{opacity:0;transform:scale(1.45)}}
+  .pe-p1{animation:pePulse 2.7s ease-out infinite;}
+  .pe-p2{animation:pePulse 2.7s ease-out .9s infinite;}
+  .pe-p3{animation:pePulse 2.7s ease-out 1.8s infinite;}
+  /* middle-phone tap hint */
+  .pg-taphint{margin-top:7px;font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.14em;
+    color:#35E0A1;text-transform:uppercase;animation:pgHintPulse 2.4s ease-in-out infinite;}
+  @keyframes pgHintPulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+  /* ---- responsive ladder ----
+     Base rules above are fluid (clamp), so these breakpoints only re-flow grids
+     and neutralise fixed-artboard assumptions from the shared .lp kit. */
+
+  /* tablets & large phones: 3-up feature grid → 2-up; straighten the hero phones
+     so their rotated bounding boxes stop forcing a min-width / horizontal scroll */
+  @media (max-width:900px){
+    .lp-feats{grid-template-columns:1fr 1fr !important;padding:0 !important;}
+    .pg-phones{gap:26px;}
+    .pg-ph{--r:0deg !important;transform:none !important;animation-name:lpFloatFlat;}
+    .pg-ph:hover{transform:translateY(-10px) scale(1.02) !important;}
+    .pg-stats{flex-wrap:wrap;gap:34px;}
+  }
+  /* straightened float for stacked phones (no rotation component) */
+  @keyframes lpFloatFlat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* phones: single-column everything, drop the nav anchor links (the page is one
+     short scroll — the "Coming soon" CTA stays), tidy the 4-up stat strip to 2×2 */
+  @media (max-width:640px){
+    .pg-nav .lp-links{display:none;}
+    .lp-feats{grid-template-columns:1fr !important;}
+    .pg-spec{grid-template-columns:1fr;}
+    .pg-stats{display:grid;grid-template-columns:1fr 1fr;gap:28px 14px;}
+    .pg-stat{min-width:0;}
+    .lp-foot{flex-direction:column;gap:8px;justify-content:center;text-align:center;}
+  }
+</style>
+</head>
+<body>
+<div id="page"><noscript>
+  <div style="max-width:560px;margin:0 auto;padding:80px 24px;text-align:center;color:#E9ECE8;font-family:-apple-system,system-ui,sans-serif">
+    <div style="font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#35E0A1;font-family:ui-monospace,monospace">bezant</div>
+    <h1 style="font-size:46px;font-weight:650;letter-spacing:-.04em;line-height:1.05;margin:18px 0 14px">Saving, but make it a streak.</h1>
+    <p style="font-size:17px;line-height:1.6;color:#8B928B;margin:0 0 24px">Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it. A private, on-device money app for iPhone.</p>
+    <p style="margin:0 0 28px;font-family:ui-monospace,monospace;font-size:14px;letter-spacing:.08em;color:#35E0A1">COMING SOON ON iOS</p>
+    <p style="font-size:12px;color:#555C58"><a href="/privacy/" style="color:#8B928B">Privacy</a> · <a href="/support/" style="color:#8B928B">Support</a></p>
+  </div>
+</noscript></div>
+<script src="landing/lp-shared.js"></script>
+<script>
+(function(){
+  const { css, mark, ring, phone, screenHome, screenTrack, screenGoal } = window.LP;
+  const style = document.createElement("style");
+  style.textContent = css;
+  document.head.insertBefore(style, document.head.querySelector("style"));
+
+  const ORBIT = `<div class="lp-orbit"><div class="core"></div><div class="ring"><i></i></div><div class="ring r2"><i></i></div></div>`;
+  const COINS = `<div class="lp-coins"><i></i><i></i><i></i></div>`;
+  const EQ = `<div class="lp-eq"><i></i><i></i><i></i><i></i><i></i></div>`;
+  const STEPS = `<div class="lp-steps"><b style="height:22px"><i></i></b><b style="height:34px"><i style="animation-delay:.3s"></i></b><b style="height:46px"><i style="animation-delay:.6s"></i></b><b style="height:58px"><i style="animation-delay:.9s"></i></b></div>`;
+  const FLAME = `<svg class="lp-flame" width="44" height="46" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8C9.2 7 7 9 7 13.2a5 5 0 0 0 10 0c0-2.4-1.4-4-2.6-5.8.3 2-1 3-1.9 3.1C13 9.4 13.4 5.8 12 2.8Z"/></svg>`;
+  const APPLE = `<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="margin-top:-2px"><path d="M16.4 12.8c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8ZM14.2 6c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.8 1 0 2-.5 2.6-1.3Z"/></svg>`;
+  const LOCK = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="10" width="15" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>`;
+
+  const words = (txt) => txt.split(" ").map((w, i) =>
+    `<span class="w${/streak/.test(w) ? " mint" : ""}" style="animation-delay:${(0.08 + i * 0.07).toFixed(2)}s">${w}</span>`).join(" ");
+
+  /* interactive phone screens */
+  const demoGoal = () => `
+    <div class="lp-cap">Goals · what-if</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:7px;padding:2px 0">
+      <div style="position:relative;width:92px;height:92px;display:grid;place-items:center">
+        ${ring(92, 0.68, "#3FCFC8").replace('class="lp-ring"', 'class=""')}
+        <span class="mono" style="position:absolute;font-size:20px;font-weight:700;letter-spacing:-.03em">68%</span>
+      </div>
+      <div style="font-size:15px;font-weight:600">Vacation in Japan</div>
+      <div class="wi-date" id="wiDate">funded <b>~Jun 2027</b></div>
+    </div>
+    <div class="wi-box">
+      <div class="wi-top"><span>Save more monthly</span><b id="wiAmt">+$0/mo</b></div>
+      <input class="wi-range" id="wiRange" type="range" min="0" max="500" step="25" value="0"/>
+      <div style="text-align:center;min-height:16px" id="wiSoon"></div>
+    </div>
+    <div class="lp-row"><span class="lp-dot" style="background:rgba(232,124,147,.14);color:#E87C93">◆</span><span class="lp-rn">Marriage</span><span class="lp-ra mono">30%</span></div>
+    <div class="lp-row"><span class="lp-dot" style="background:rgba(53,224,161,.14);color:#35E0A1">⌂</span><span class="lp-rn">House deposit</span><span class="lp-ra mono">10%</span></div>`;
+
+  const demoTrack = () => `
+    <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:17px;font-weight:650;letter-spacing:-.03em">Track</span><span class="dm-flame" id="dmFlame">🔥 <span id="dmFlameN">6</span></span></div>
+    <div class="dm-amt" id="dmAmt"><span class="c">$</span>0</div>
+    <div class="dm-cats" id="dmCats">
+      <button class="dm-cat on" data-em="☕" data-n="Coffee">☕ Food</button>
+      <button class="dm-cat" data-em="🚗" data-n="Transit">🚗 Transport</button>
+      <button class="dm-cat" data-em="🎮" data-n="Fun">🎮 Leisure</button>
+    </div>
+    <div class="dm-pad" id="dmPad">
+      ${[1,2,3,4,5,6,7,8,9,0].map((n) => `<button class="dm-key" data-k="${n}">${n}</button>`).join("")}
+      <button class="dm-key" data-k="00">00</button><button class="dm-key" data-k="del">⌫</button>
+      <button class="dm-logbtn" id="dmLog">Log it</button>
+    </div>
+    <div class="dm-list" id="dmList">
+      <div class="lp-row"><span class="lp-dot" style="background:rgba(232,162,60,.14);color:#E8A23C">🍴</span><span class="lp-rn">Lunch</span><span class="lp-ra mono">$18</span></div>
+    </div>
+    <div style="text-align:center"><button class="dm-zero" id="dmZero">✓ Spent nothing today — $0 day</button></div>`;
+
+  const chips = [
+    `☕ <b>Coffee $12</b> — logged in one tap`,
+    `🔥 <b class="mint">Day 47</b> streak kept`,
+    `✈️ Vacation <b>68% funded</b>`,
+    `💍 Marriage · <b>~Dec 2026</b>`,
+    `📉 <b class="mint">↓ 12%</b> vs last month`,
+    `🏠 House deposit <b>+$500</b>`,
+    `✓ <b class="mint">$0 day</b> claimed`,
+    `🎯 4 goals · <b>every one dated</b>`,
+    `⌚ <b class="mint">On your wrist</b> — log from the watch`,
+  ];
+  const chipRow = chips.map((c) => `<span class="pg-chip">${c}</span>`).join("");
+
+  const spec = (title, rows) => `
+    <div class="lp-feat" style="gap:16px">
+      <span class="lp-kicker" style="font-size:10px;font-family:ui-monospace,monospace">${title}</span>
+      ${rows.map(([k, v]) => `
+        <div style="display:flex;justify-content:space-between;gap:18px;border-bottom:1px dashed rgba(255,255,255,.08);padding-bottom:10px;font-family:ui-monospace,monospace">
+          <span style="color:#555C58;font-size:12.5px">${k}</span><span style="font-size:12.5px;text-align:right">${v}</span></div>`).join("")}
+    </div>`;
+
+  document.getElementById("page").innerHTML = `
+  <div class="lp page">
+    <div class="lp-amb"></div>
+    <div class="pg-nav">
+      <nav class="lp-nav">
+        <div class="lp-brand">${mark(26)}<span class="lp-wm">bezant</span></div>
+        <div class="lp-links"><a href="#features">Features</a><a href="#watch">Watch</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a></div>
+        <a class="lp-navcta" href="#soon">Coming soon</a>
+      </nav>
+    </div>
+
+    <section class="pg-hero">
+      <div class="pg-emblem">${mark(120)}<i class="pe-coin pe-c1"></i><i class="pe-coin pe-c2"></i><i class="pe-coin pe-c3"></i><span class="pe-pulse pe-p1"></span><span class="pe-pulse pe-p2"></span><span class="pe-pulse pe-p3"></span></div>
+      <h1 class="pg-h1">${words("Saving, but make it a streak.")}</h1>
+      <p class="lp-sub" style="max-width:480px">Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it.</p>
+      <div style="display:flex;gap:12px;align-items:center">
+        <span class="lp-btn-ghost pg-soon" aria-disabled="true">${APPLE} Coming soon on the App Store</span>
+      </div>
+      <span class="lp-ctanote">FREE · PRIVATE · iPHONE + APPLE WATCH</span>
+    </section>
+
+    <section class="pg-phones" id="phPar">
+      <div class="pg-ph" data-px="-1" style="--r:-6deg;transform:rotate(-6deg) translateY(28px)"><span class="pg-try">DRAG THE SLIDER</span>${phone(demoGoal())}</div>
+      <div class="pg-ph" data-px="0" style="position:relative;z-index:2;animation-delay:.5s">${phone(screenHome())}</div>
+      <div class="pg-ph" data-px="1" style="--r:6deg;transform:rotate(6deg) translateY(28px);animation-delay:.9s"><span class="pg-try">TRY LOGGING ONE</span>${phone(demoTrack())}</div>
+    </section>
+
+    <div class="pg-marq"><div class="pg-marq-in">${chipRow}${chipRow}</div></div>
+
+    <section class="pg-sec" id="features">
+      <div class="pg-sechead rv">
+        <span class="lp-kicker">Why it sticks</span>
+        <h2 class="lp-h2">Money habits, gamified gently.</h2>
+      </div>
+      <div class="lp-feats" style="padding:0">
+        <div class="lp-feat rv">
+          <div class="lp-fstage">${FLAME}</div>
+          <h3>Daily flame</h3><p>A streak for your money. Log every day — or claim a “$0 day” — and watch the flame grow. Milestones at 7, 30 and 100 days.</p>
+        </div>
+        <div class="lp-feat rv" style="transition-delay:.08s">
+          <div class="lp-fstage">${STEPS}</div>
+          <h3>Goals that climb</h3><p>Rank what matters; savings fund goals top-down, each with a live finish date. Confetti when you summit.</p>
+        </div>
+        <div class="lp-feat rv" style="transition-delay:.16s">
+          <div class="lp-fstage">${COINS}</div>
+          <h3>One-tap logging</h3><p>A number pad, a category, done — from the app or your Home Screen widget. Faster than your banking app loads.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pg-sec" id="watch">
+      <div class="pg-sechead rv">
+        <span class="lp-kicker">// now on your wrist</span>
+        <h2 class="lp-h2">Bezant on Apple Watch.</h2>
+        <p class="lp-sub" style="max-width:520px">Your streak, goals and net worth — a glance away. Log a spend from the wrist and it's on your iPhone by the time you look.</p>
+      </div>
+      <div class="pg-watchwrap rv">
+        <div class="pg-watch">
+          <div class="case"></div><div class="crown"></div>
+          <div class="scr">
+            <div><div class="wn">NET WORTH</div><div class="wv"><span class="c">$</span>18,250</div></div>
+            <div style="display:flex;align-items:center;gap:9px">
+              <div style="position:relative;width:38px;height:38px;display:grid;place-items:center;flex:0 0 auto">
+                ${ring(38, 0.37, "#35E0A1").replace('class="lp-ring"', 'class=""')}
+                <span class="mono" style="position:absolute;font-size:9.5px;font-weight:700">37%</span>
+              </div>
+              <div style="min-width:0"><div class="wgn">Marriage</div><div class="wgp">funded ~Dec 26</div></div>
+            </div>
+            <div class="wflame">🔥 6 · <span style="color:#8B928B">spent today $0</span></div>
+          </div>
+        </div>
+        <div class="pg-watchpts">
+          <div class="pg-wpt"><span class="ic">◔</span><div><h4>Glance</h4><p>Net worth, your top goal's ring, and your streak — the moment you raise your wrist.</p></div></div>
+          <div class="pg-wpt"><span class="ic">▦</span><div><h4>Complications</h4><p>Put your goal ring or net worth right on your watch face — updated as you save.</p></div></div>
+          <div class="pg-wpt"><span class="ic">+</span><div><h4>Quick-log</h4><p>Spin the Digital Crown, tap a category, done — log a spend without reaching for your phone.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pg-sec" id="privacy">
+      <div class="pg-sechead rv">
+        <span class="lp-kicker">// local-first by design</span>
+        <h2 class="lp-h2">Private by default.</h2>
+        <p class="lp-sub" style="max-width:520px">Balances, goals and spending live on your device — not our servers. Backups are an encrypted file <b>you</b> hold.</p>
+      </div>
+      <div class="pg-stats rv">
+        <div class="pg-stat" style="text-align:center"><div class="v">$<span data-count="0">0</span></div><div class="l">sent to our servers</div></div>
+        <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="100">0</span>%</div><div class="l">on-device data</div></div>
+        <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="7">0</span></div><div class="l">spending categories</div></div>
+        <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="1">0</span> tap</div><div class="l">to log a spend</div></div>
+      </div>
+      <div class="pg-spec">
+        <div class="rv">${spec("SPEC / PRIVACY", [["Storage", "On-device · encrypted backup file"], ["Account", "Optional — email only, for restore"], ["Telemetry", "None"], ["Ads / resale", "Never"]])}</div>
+        <div class="rv" style="transition-delay:.08s">${spec("SPEC / ENGINE", [["Allocation", "Priority tiers · funded top-down"], ["Forecast", "Funding date per goal, live"], ["What-if", "+$/mo and lump-sum simulation"], ["Streaks", "Daily log · milestones 7/30/100"]])}</div>
+      </div>
+    </section>
+
+    <section class="pg-sec" id="faq">
+      <div class="pg-sechead rv">
+        <span class="lp-kicker">// FAQ</span>
+        <h2 class="lp-h2">Good questions.</h2>
+      </div>
+      <div class="pg-faq">
+        <details class="pg-q rv"><summary>Is it really free?</summary><p>Yes — free to download, no ads, and no account required. Open it and start logging.</p></details>
+        <details class="pg-q rv" style="transition-delay:.05s"><summary>Can you see my financial data?</summary><p>No. Balances, goals and spending live on your device. We run no servers for your data and collect no telemetry. Backups are an encrypted file you hold.</p></details>
+        <details class="pg-q rv" style="transition-delay:.1s"><summary>Do I need an account?</summary><p>No. Sign in with Apple is optional — only if you want to sync across your devices through your private iCloud. Skip it and everything stays on this one device.</p></details>
+        <details class="pg-q rv" style="transition-delay:.15s"><summary>Which platforms can I use it on?</summary><p>iPhone, with an Apple Watch companion — glance at your goals, add a complication to your watch face, and quick-log a spend from the wrist. Android is on the roadmap and will follow.</p></details>
+        <details class="pg-q rv" style="transition-delay:.2s"><summary>How does the funding date work?</summary><p>Rank your goals; Bezant funds them top-down from what you save and forecasts a live finish date for each. The what-if slider shows how an extra $/month pulls those dates earlier.</p></details>
+      </div>
+    </section>
+
+    <section class="pg-sec" id="soon">
+      <div class="lp-ctasec rv" style="padding:0">
+        <div style="width:64px;height:64px;border-radius:20px;background:rgba(53,224,161,.12);display:grid;place-items:center;color:#35E0A1">${LOCK}</div>
+        <h2 class="lp-h2">Coming soon on iOS.</h2>
+        <p class="lp-sub" style="max-width:430px">Bezant is in the final stretch — free, private, and built for iPhone. The App Store listing lands shortly.</p>
+        <span class="lp-btn-ghost pg-soon" aria-disabled="true">${APPLE} Coming soon on the App Store</span>
+        <span class="lp-ctanote">FREE · PRIVATE · iPHONE + WATCH</span>
+      </div>
+    </section>
+
+    <footer class="lp-foot pg-foot">
+      <span>© 2026 BEZANT</span>
+      <span class="pg-footlinks"><a href="/privacy/">PRIVACY</a> · <a href="/support/">SUPPORT</a></span>
+    </footer>
+  </div>`;
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* pipeline health: if rAF never ticks (throttled webview), disable transitions */
+  let rafOk = false;
+  requestAnimationFrame(() => { rafOk = true; });
+  setTimeout(() => { if (!rafOk) document.documentElement.classList.add("no-anim"); }, 350);
+
+  /* safety: if the animation clock is throttled, force the headline visible */
+  setTimeout(() => { const h = document.querySelector(".pg-h1"); if (h) h.classList.add("settled"); }, 1600);
+
+  /* scroll reveals — plain scroll-driven check (IntersectionObserver is
+     unreliable in throttled webviews; rect math works everywhere) */
+  const reveal = (el) => {
+    el.classList.add("in");
+    el.querySelectorAll("[data-count]").forEach(runCount);
+    // backstop: guarantee the settled state even if the transition clock is frozen
+    setTimeout(() => { el.style.opacity = "1"; el.style.transform = "none"; }, 820);
+  };
+  const pending = new Set(document.querySelectorAll(".rv"));
+  function checkReveals() {
+    const vh = window.innerHeight;
+    pending.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.88) { reveal(el); pending.delete(el); }
+    });
+  }
+  window.addEventListener("scroll", checkReveals, { passive: true });
+  window.addEventListener("resize", checkReveals);
+  ["wheel", "pointerdown", "keydown", "touchmove"].forEach((ev) =>
+    window.addEventListener(ev, checkReveals, { passive: true }));
+  checkReveals();
+  /* timer fallback: some webviews suppress scroll/IO callbacks entirely.
+     Self-clears once everything is revealed — no time cap (9 rect checks
+     per tick is negligible). */
+  const poll = setInterval(() => { checkReveals(); if (!pending.size) clearInterval(poll); }, 450);
+
+  /* count-ups */
+  const doneCounts = new WeakSet();
+  function runCount(el) {
+    if (doneCounts.has(el)) return; doneCounts.add(el);
+    const target = parseInt(el.getAttribute("data-count"), 10);
+    if (reduce || target === 0 || document.documentElement.classList.contains("no-anim")) {
+      el.textContent = target.toLocaleString("en-US"); return;
+    }
+    const t0 = performance.now(), dur = 900;
+    setTimeout(() => { el.textContent = target.toLocaleString("en-US"); }, dur + 250); /* force final even if rAF dies */
+    (function tick(t) {
+      const p = Math.min(1, (t - t0) / dur);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  /* gentle pointer parallax on the hero phones */
+  if (!reduce) {
+    const wrap = document.getElementById("phPar");
+    wrap.addEventListener("mousemove", (e) => {
+      const r = wrap.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width - 0.5;
+      wrap.querySelectorAll(".pg-ph").forEach((ph) => {
+        const k = parseFloat(ph.getAttribute("data-px"));
+        ph.style.translate = `${(nx * 14 * (k === 0 ? 1.6 : k)).toFixed(1)}px 0`;
+      });
+    });
+    wrap.addEventListener("mouseleave", () => wrap.querySelectorAll(".pg-ph").forEach((ph) => ph.style.translate = "0 0"));
+  }
+
+  /* ---- playable quick-log demo ---- */
+  let amt = "0";
+  const amtEl = document.getElementById("dmAmt");
+  const renderAmt = () => { amtEl.innerHTML = `<span class="c">$</span>${parseInt(amt, 10).toLocaleString("en-US")}`; };
+  document.getElementById("dmPad").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-k]"); if (!b) return;
+    const k = b.getAttribute("data-k");
+    if (k === "del") amt = amt.length > 1 ? amt.slice(0, -1) : "0";
+    else if (amt.length < 5) amt = amt === "0" ? (k === "00" ? "0" : k) : amt + k;
+    renderAmt();
+  });
+  document.getElementById("dmCats").addEventListener("click", (e) => {
+    const b = e.target.closest(".dm-cat"); if (!b) return;
+    document.querySelectorAll(".dm-cat").forEach((c) => c.classList.remove("on"));
+    b.classList.add("on");
+  });
+  const bumpFlame = () => {
+    const n = document.getElementById("dmFlameN");
+    n.textContent = parseInt(n.textContent, 10) + 1;
+    const f = document.getElementById("dmFlame");
+    f.classList.remove("bump"); void f.offsetWidth; f.classList.add("bump");
+  };
+  document.getElementById("dmLog").addEventListener("click", () => {
+    const v = parseInt(amt, 10); if (!v) return;
+    const cat = document.querySelector(".dm-cat.on");
+    const row = document.createElement("div");
+    row.className = "lp-row dm-new";
+    row.innerHTML = `<span class="lp-dot" style="background:rgba(53,224,161,.14)">${cat.getAttribute("data-em")}</span><span class="lp-rn">${cat.getAttribute("data-n")}</span><span class="lp-ra mono">$${v.toLocaleString("en-US")}</span>`;
+    const list = document.getElementById("dmList");
+    list.prepend(row);
+    while (list.children.length > 2) list.removeChild(list.lastChild);
+    amt = "0"; renderAmt(); bumpFlame();
+  });
+  document.getElementById("dmZero").addEventListener("click", (e) => {
+    const btn = e.currentTarget;
+    bumpFlame();
+    btn.textContent = "🔥 Streak kept — nice.";
+    setTimeout(() => { btn.textContent = "✓ Spent nothing today — $0 day"; }, 1600);
+  });
+
+  /* ---- middle phone: wealth count-up (click to replay) ---- */
+  const wealthEl = document.querySelector('.pg-ph[data-px="0"] .lp-big');
+  if (wealthEl) {
+    wealthEl.style.cursor = "pointer";
+    wealthEl.title = "Replay";
+    wealthEl.parentElement.insertAdjacentHTML("beforeend", `<div class="pg-taphint">tap the total ↺ replay</div>`);
+    const renderW = (v) => { wealthEl.innerHTML = `<span class="c">$</span>${v.toLocaleString("en-US")}`; };
+    const countWealth = () => {
+      const target = 16700;
+      if (reduce || document.documentElement.classList.contains("no-anim")) { renderW(target); return; }
+      const t0 = performance.now(), dur = 1300;
+      const backstop = setTimeout(() => renderW(target), dur + 250);
+      (function tick(t) {
+        const p = Math.min(1, (t - t0) / dur);
+        renderW(Math.round(target * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(tick); else clearTimeout(backstop);
+      })(t0);
+    };
+    setTimeout(countWealth, 700);
+    wealthEl.addEventListener("click", countWealth);
+  }
+
+  /* ---- what-if slider demo ---- */
+  const TOGO = 1920, BASE = 160, START = new Date(2026, 5, 1);
+  const fmtM = (d) => d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+  const baseMonths = Math.ceil(TOGO / BASE);
+  document.getElementById("wiRange").addEventListener("input", (e) => {
+    const x = parseInt(e.target.value, 10);
+    const m = Math.max(1, Math.ceil(TOGO / (BASE + x)));
+    const d = new Date(START); d.setMonth(d.getMonth() + m);
+    document.getElementById("wiAmt").textContent = `+$${x}/mo`;
+    const dateEl = document.getElementById("wiDate");
+    dateEl.innerHTML = `funded <b>~${fmtM(d)}</b>`;
+    dateEl.classList.toggle("earlier", x > 0);
+    const sooner = baseMonths - m;
+    document.getElementById("wiSoon").innerHTML = sooner > 0 ? `<span class="wi-soon">▲ ${sooner} ${sooner === 1 ? "month" : "months"} sooner</span>` : "";
+  });
+
+})();
+</script>
+</body>
+</html>
