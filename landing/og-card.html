@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:630px;}
+  .card{width:1200px;height:630px;position:relative;overflow:hidden;
+    background:#0A0C0B;
+    background-image:
+      radial-gradient(70% 90% at 84% 12%, rgba(53,224,161,.20), transparent 58%),
+      radial-gradient(60% 80% at 6% 100%, rgba(94,168,224,.10), transparent 60%);
+    font-family:"Geist",-apple-system,system-ui,sans-serif;color:#E9ECE8;
+    display:flex;flex-direction:column;justify-content:space-between;padding:72px 80px;}
+  .mono{font-family:"Geist Mono",ui-monospace,monospace;}
+  /* top row */
+  .top{display:flex;align-items:center;gap:16px;}
+  .wm{font-size:30px;font-weight:600;letter-spacing:-.03em;}
+  .pill{margin-left:auto;font-family:"Geist Mono",monospace;font-size:15px;letter-spacing:.14em;
+    color:#35E0A1;border:1px solid rgba(53,224,161,.34);background:rgba(53,224,161,.10);
+    padding:9px 16px;border-radius:999px;text-transform:uppercase;}
+  /* middle */
+  .mid{display:flex;align-items:center;gap:64px;}
+  .copy{flex:1;}
+  .h{font-size:74px;font-weight:600;letter-spacing:-.035em;line-height:1.04;}
+  .h .acc{color:#35E0A1;}
+  .sub{margin-top:24px;font-size:25px;line-height:1.45;color:#8B928B;max-width:560px;}
+  .sub b{color:#E9ECE8;font-weight:500;}
+  /* phone glance */
+  .phone{width:250px;height:392px;flex:0 0 auto;border-radius:40px;background:#000;padding:9px;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1.5px #1c201d;transform:rotate(3deg);}
+  .pscreen{width:100%;height:100%;border-radius:32px;background:#0A0C0B;
+    background-image:radial-gradient(110% 50% at 85% -4%, rgba(53,224,161,.16), transparent 56%);
+    padding:26px 20px;display:flex;flex-direction:column;gap:16px;overflow:hidden;}
+  .p-cap{font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.16em;color:#555C58;text-transform:uppercase;}
+  .p-total{font-family:"Geist Mono",monospace;font-size:40px;font-weight:600;letter-spacing:-.03em;margin-top:-6px;}
+  .p-total .c{color:#555C58;}
+  .p-flame{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-family:"Geist Mono",monospace;
+    font-size:17px;font-weight:700;color:#E8A23C;background:rgba(232,162,60,.14);padding:7px 14px;border-radius:999px;}
+  .p-goal{margin-top:2px;}
+  .p-goal .gt{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;}
+  .p-goal .gn{font-weight:600;} .p-goal .gd{font-family:"Geist Mono",monospace;font-weight:700;color:#3FCFC8;}
+  .p-track{height:7px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;}
+  .p-track i{display:block;height:100%;width:68%;border-radius:99px;background:linear-gradient(90deg,#1F8F66,#3FCFC8);}
+  .p-rows{display:flex;flex-direction:column;gap:11px;margin-top:6px;}
+  .p-row{display:flex;align-items:center;gap:10px;}
+  .p-dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
+  .p-rn{flex:1;font-size:13px;color:#8B928B;}
+  .p-ra{font-family:"Geist Mono",monospace;font-size:13px;font-weight:600;}
+  /* bottom */
+  .bot{display:flex;align-items:center;gap:14px;}
+  .ios{display:inline-flex;align-items:center;gap:11px;background:#35E0A1;color:#04130d;
+    font-size:20px;font-weight:650;padding:15px 26px;border-radius:15px;}
+  .url{margin-left:auto;font-family:"Geist Mono",monospace;font-size:18px;color:#555C58;letter-spacing:.02em;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><defs><mask id="m"><rect width="120" height="120" fill="#000"/><circle cx="64" cy="74" r="27" fill="#fff"/><circle cx="64" cy="74" r="13" fill="#000"/></mask></defs><path d="M38 20 V94" stroke="#35E0A1" stroke-width="11.5" stroke-linecap="round"/><circle cx="64" cy="74" r="27" fill="#35E0A1" mask="url(#m)"/><circle cx="64" cy="74" r="5" fill="#35E0A1"/></svg>
+    <span class="wm">bezant</span>
+    <span class="pill">Free · Private</span>
+  </div>
+
+  <div class="mid">
+    <div class="copy">
+      <div class="h">Saving, but make<br/>it a <span class="acc">streak.</span></div>
+      <div class="sub">Set goals, log spends in a tap, and watch every goal's date pull closer. <b>Private by default — your data never leaves your phone.</b></div>
+    </div>
+    <div class="phone"><div class="pscreen">
+      <div><div class="p-cap">Total wealth</div><div class="p-total"><span class="c">$</span>16,700</div></div>
+      <span class="p-flame">🔥 <span>47</span></span>
+      <div class="p-goal"><div class="gt"><span class="gn">Japan trip</span><span class="gd">~Nov 26</span></div><div class="p-track"><i></i></div></div>
+      <div class="p-rows">
+        <div class="p-row"><span class="p-dot" style="background:#E8A23C"></span><span class="p-rn">Food</span><span class="p-ra">$300</span></div>
+        <div class="p-row"><span class="p-dot" style="background:#3FCFC8"></span><span class="p-rn">Transport</span><span class="p-ra">$180</span></div>
+        <div class="p-row"><span class="p-dot" style="background:#8A8AF0"></span><span class="p-rn">Leisure</span><span class="p-ra">$120</span></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="bot">
+    <span class="ios">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#04130d"><path d="M16.4 12.8c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8ZM14.2 6c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.8 1 0 2-.5 2.6-1.3Z"/></svg>
+      Download for iOS
+    </span>
+    <span class="url">bezant.app</span>
+  </div>
+</div>
+</body>
+</html>
