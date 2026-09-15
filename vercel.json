@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "ruby -e \"require 'base64'; File.binwrite('landing/og-image.png', Base64.decode64(File.read('landing/og-image.png.b64')))\" && bundle install",
+  "buildCommand": "bundle exec jekyll build",
+  "outputDirectory": "_site",
+  "trailingSlash": true,
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)README.md' ':(exclude).github' ':(exclude)scripts'"
+}

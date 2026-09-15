@@ -1,0 +1,30 @@
+title: Bezant
+description: Personal finance planner for iOS — privacy and support pages.
+url: "https://bezant.app"
+baseurl: ""
+theme: minima
+show_excerpts: false
+
+header_pages:
+  - privacy.md
+  - support.md
+
+# Strip the default Jekyll footer noise.
+minima:
+  skin: classic
+
+# Friendly permalinks: /privacy and /support instead of /privacy.html.
+permalink: /:basename/
+
+# This repository IS the site root (Vercel Root Directory = .).
+# Every file here is published by default — including plain .md with no
+# front matter, which Jekyll copies verbatim. Only index.html, privacy.md,
+# support.md and the landing/ assets are intended to be reachable.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - vercel.json
+  - scripts
+  - landing/og-image.png.b64

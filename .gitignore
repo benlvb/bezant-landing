@@ -1,0 +1,11 @@
+# Jekyll build output + local Bundler artifacts. Vercel builds `_site` fresh
+# from the committed Gemfile.lock (see vercel.json), so none of this belongs
+# in git.
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+
+# Materialized from landing/og-image.png.b64 at install / check time.
+landing/og-image.png
