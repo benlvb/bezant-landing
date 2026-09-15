@@ -12,21 +12,13 @@
  *
  * Usage: node scripts/check-landing.mjs   (exit 0 = pass, 1 = fail)
  */
-import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
 const pageDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const assetDir = join(pageDir, "landing");
-
-// og-image.png is binary; the committed source is four base64 chunks so the
-// file can travel through text-only GitHub APIs. Materialize before checks.
-const pngPath = join(assetDir, "og-image.png");
-const pngChunks = [1, 2, 3, 4, 5, 6].map((i) => join(assetDir, `og-image.png.b64.${i}`));
-if (!existsSync(pngPath) && pngChunks.every((p) => existsSync(p))) {
-  writeFileSync(pngPath, Buffer.from(pngChunks.map((p) => readFileSync(p, "utf8")).join(""), "base64"));
-}
 
 const problems = [];
 const ok = (m) => console.log(`  ok  ${m}`);
