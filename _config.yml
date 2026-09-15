@@ -20,6 +20,7 @@ permalink: /:basename/
 # Every file here is published by default — including plain .md with no
 # front matter, which Jekyll copies verbatim. Only index.html, privacy.md,
 # support.md and the landing/ assets are intended to be reachable.
+# Deploy smoke: harmless config touch to verify Vercel production builds.
 exclude:
   - README.md
   - Gemfile
