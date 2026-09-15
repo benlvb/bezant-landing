@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "ruby -e \"require 'base64'; b=(1..6).map{|i| File.read('landing/og-image.png.b64.'+i.to_s)}.join; File.binwrite('landing/og-image.png', Base64.decode64(b))\" && bundle install",
+  "installCommand": "bundle install",
   "buildCommand": "bundle exec jekyll build",
   "outputDirectory": "_site",
   "trailingSlash": true,

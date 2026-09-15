@@ -6,6 +6,3 @@ _site/
 .jekyll-metadata
 vendor/
 .bundle/
-
-# Materialized from landing/og-image.png.b64.* at install / check time.
-landing/og-image.png
