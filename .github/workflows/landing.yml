@@ -29,7 +29,7 @@ jobs:
           node-version: 20
 
       - name: Materialize share card
-        run: node -e "const fs=require('fs'); const b=[1,2,3,4].map(i=>fs.readFileSync('landing/og-image.png.b64.'+i,'utf8')).join(''); fs.writeFileSync('landing/og-image.png', Buffer.from(b,'base64'))"
+        run: node -e "const fs=require('fs'); const b=[1,2,3,4,5,6].map(i=>fs.readFileSync('landing/og-image.png.b64.'+i,'utf8')).join(''); fs.writeFileSync('landing/og-image.png', Buffer.from(b,'base64'))"
 
       - name: Check landing page
         run: node scripts/check-landing.mjs

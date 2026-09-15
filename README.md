@@ -43,7 +43,7 @@ Vercel: import this repo, **Root Directory = `.`**. `vercel.json` runs `bundle e
 
 Domain: `bezant.app`.
 
-The 1200×630 share card is stored as four base64 chunks (`landing/og-image.png.b64.1`–`.4`) and decoded to `landing/og-image.png` during the Vercel install step (and by `scripts/check-landing.mjs`). Re-render from the SVG with:
+The 1200×630 share card is stored as six base64 chunks (`landing/og-image.png.b64.1`–`.6`) and decoded to `landing/og-image.png` during the Vercel install step (and by `scripts/check-landing.mjs`). Re-render from the SVG with:
 
 ```sh
 rsvg-convert -w 1200 -h 630 landing/og-card.svg -o landing/og-image.png
@@ -51,9 +51,10 @@ python3 - <<'PY'
 from pathlib import Path
 import base64
 b = base64.b64encode(Path("landing/og-image.png").read_bytes()).decode()
-size = (len(b) + 3) // 4
+n = 6
+size = (len(b) + n - 1) // n
 size = (size + 3) // 4 * 4
-for i in range(4):
+for i in range(n):
     Path(f"landing/og-image.png.b64.{i+1}").write_text(b[i*size:(i+1)*size])
 PY
 ```

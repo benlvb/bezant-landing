@@ -23,7 +23,7 @@ const assetDir = join(pageDir, "landing");
 // og-image.png is binary; the committed source is four base64 chunks so the
 // file can travel through text-only GitHub APIs. Materialize before checks.
 const pngPath = join(assetDir, "og-image.png");
-const pngChunks = [1, 2, 3, 4].map((i) => join(assetDir, `og-image.png.b64.${i}`));
+const pngChunks = [1, 2, 3, 4, 5, 6].map((i) => join(assetDir, `og-image.png.b64.${i}`));
 if (!existsSync(pngPath) && pngChunks.every((p) => existsSync(p))) {
   writeFileSync(pngPath, Buffer.from(pngChunks.map((p) => readFileSync(p, "utf8")).join(""), "base64"));
 }
