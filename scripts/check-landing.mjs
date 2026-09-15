@@ -20,12 +20,12 @@ import vm from "node:vm";
 const pageDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const assetDir = join(pageDir, "landing");
 
-// og-image.png is binary; the committed source is a base64 sidecar so the
+// og-image.png is binary; the committed source is four base64 chunks so the
 // file can travel through text-only GitHub APIs. Materialize before checks.
 const pngPath = join(assetDir, "og-image.png");
-const pngB64 = join(assetDir, "og-image.png.b64");
-if (!existsSync(pngPath) && existsSync(pngB64)) {
-  writeFileSync(pngPath, Buffer.from(readFileSync(pngB64, "utf8"), "base64"));
+const pngChunks = [1, 2, 3, 4].map((i) => join(assetDir, `og-image.png.b64.${i}`));
+if (!existsSync(pngPath) && pngChunks.every((p) => existsSync(p))) {
+  writeFileSync(pngPath, Buffer.from(pngChunks.map((p) => readFileSync(p, "utf8")).join(""), "base64"));
 }
 
 const problems = [];

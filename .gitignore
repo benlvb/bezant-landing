@@ -7,5 +7,5 @@ _site/
 vendor/
 .bundle/
 
-# Materialized from landing/og-image.png.b64 at install / check time.
+# Materialized from landing/og-image.png.b64.* at install / check time.
 landing/og-image.png
