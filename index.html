@@ -79,7 +79,8 @@
   .pg-stat .l{font-family:ui-monospace,monospace;font-size:11px;color:#555C58;letter-spacing:.1em;text-transform:uppercase;margin-top:7px;}
 
   /* spec grid */
-  .pg-spec{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px;}
+  .pg-spec{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:38px;}
+  .pg-also{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:28px;}
 
   /* feature card hover */
   .lp-feat{transition:transform .25s ease,border-color .25s ease;}
@@ -202,6 +203,7 @@
      so their rotated bounding boxes stop forcing a min-width / horizontal scroll */
   @media (max-width:900px){
     .lp-feats{grid-template-columns:1fr 1fr !important;padding:0 !important;}
+    .pg-spec{grid-template-columns:1fr 1fr;}
     .pg-phones{gap:26px;}
     .pg-ph{--r:0deg !important;transform:none !important;animation-name:lpFloatFlat;}
     .pg-ph:hover{transform:translateY(-10px) scale(1.02) !important;}
@@ -227,8 +229,8 @@
   <div style="max-width:560px;margin:0 auto;padding:80px 24px;text-align:center;color:#E9ECE8;font-family:-apple-system,system-ui,sans-serif">
     <div style="font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#35E0A1;font-family:ui-monospace,monospace">bezant</div>
     <h1 style="font-size:46px;font-weight:650;letter-spacing:-.04em;line-height:1.05;margin:18px 0 14px">Saving, but make it a streak.</h1>
-    <p style="font-size:17px;line-height:1.6;color:#8B928B;margin:0 0 24px">Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it. A private, on-device money app for iPhone.</p>
-    <p style="margin:0 0 28px;font-family:ui-monospace,monospace;font-size:14px;letter-spacing:.08em;color:#35E0A1">COMING SOON ON iOS</p>
+    <p style="font-size:17px;line-height:1.6;color:#8B928B;margin:0 0 24px">Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it. A private, on-device money app for iPhone and Apple Watch.</p>
+    <p style="margin:0 0 28px;font-family:ui-monospace,monospace;font-size:14px;letter-spacing:.08em;color:#35E0A1">ALMOST THERE · APP STORE LISTING SOON</p>
     <p style="font-size:12px;color:#555C58"><a href="/privacy/" style="color:#8B928B">Privacy</a> · <a href="/support/" style="color:#8B928B">Support</a></p>
   </div>
 </noscript></div>
@@ -298,6 +300,8 @@
     `✓ <b class="mint">$0 day</b> claimed`,
     `🎯 4 goals · <b>every one dated</b>`,
     `⌚ <b class="mint">On your wrist</b> — log from the watch`,
+    `🔒 <b>Hide amounts</b> · Face Unlock · switcher blur`,
+    `🎙 Siri · <b class="mint">What's my net worth in Bezant?</b>`,
   ];
   const chipRow = chips.map((c) => `<span class="pg-chip">${c}</span>`).join("");
 
@@ -350,12 +354,20 @@
         </div>
         <div class="lp-feat rv" style="transition-delay:.08s">
           <div class="lp-fstage">${STEPS}</div>
-          <h3>Goals that climb</h3><p>Rank what matters; savings fund goals top-down, each with a live finish date. Confetti when you summit.</p>
+          <h3>Goals that climb</h3><p>Rank Top, Mid, or Low. Manual contributions earmark wealth; leftover funds top-down. Each goal gets a live finish date — confetti when you summit.</p>
         </div>
         <div class="lp-feat rv" style="transition-delay:.16s">
           <div class="lp-fstage">${COINS}</div>
-          <h3>One-tap logging</h3><p>A number pad, a category, done — from the app or your Home Screen widget. Faster than your banking app loads.</p>
+          <h3>One-tap logging</h3><p>Number pad in-app, Home Screen and Lock Screen widgets, or Siri — “What’s my net worth in Bezant?”, “Log an expense…”, “Quick log…”.</p>
         </div>
+      </div>
+      <div class="pg-also rv">
+        <span class="pg-chip">Home · Track · Settings <b class="mint">+</b></span>
+        <span class="pg-chip">USD · MYR · EUR · SGD · <b>ECB FX</b></span>
+        <span class="pg-chip">CSV import · <b>PDF statement</b></span>
+        <span class="pg-chip">Backup / restore · <b>profiles</b></span>
+        <span class="pg-chip">Hide amounts · <b>Face Unlock</b></span>
+        <span class="pg-chip">Widgets · <b>Siri</b> · Watch</span>
       </div>
     </section>
 
@@ -363,7 +375,7 @@
       <div class="pg-sechead rv">
         <span class="lp-kicker">// now on your wrist</span>
         <h2 class="lp-h2">Bezant on Apple Watch.</h2>
-        <p class="lp-sub" style="max-width:520px">Your streak, goals and net worth — a glance away. Log a spend from the wrist and it's on your iPhone by the time you look.</p>
+        <p class="lp-sub" style="max-width:520px">Your streak, goals and net worth — a glance away. Log a spend from the wrist; it lands in your iPhone journal.</p>
       </div>
       <div class="pg-watchwrap rv">
         <div class="pg-watch">
@@ -375,15 +387,15 @@
                 ${ring(38, 0.37, "#35E0A1").replace('class="lp-ring"', 'class=""')}
                 <span class="mono" style="position:absolute;font-size:9.5px;font-weight:700">37%</span>
               </div>
-              <div style="min-width:0"><div class="wgn">Marriage</div><div class="wgp">funded ~Dec 26</div></div>
+              <div style="min-width:0"><div class="wgn">Marriage</div><div class="wgp">37% funded</div></div>
             </div>
             <div class="wflame">🔥 6 · <span style="color:#8B928B">spent today $0</span></div>
           </div>
         </div>
         <div class="pg-watchpts">
-          <div class="pg-wpt"><span class="ic">◔</span><div><h4>Glance</h4><p>Net worth, your top goal's ring, and your streak — the moment you raise your wrist.</p></div></div>
-          <div class="pg-wpt"><span class="ic">▦</span><div><h4>Complications</h4><p>Put your goal ring or net worth right on your watch face — updated as you save.</p></div></div>
-          <div class="pg-wpt"><span class="ic">+</span><div><h4>Quick-log</h4><p>Spin the Digital Crown, tap a category, done — log a spend without reaching for your phone.</p></div></div>
+          <div class="pg-wpt"><span class="ic">◔</span><div><h4>Glance</h4><p>Net worth, your top goal’s ring, streak, and spent today — the moment you raise your wrist.</p></div></div>
+          <div class="pg-wpt"><span class="ic">▦</span><div><h4>Complications</h4><p>Top Goal, Net Worth, and Streak on the watch face — updated as you save.</p></div></div>
+          <div class="pg-wpt"><span class="ic">+</span><div><h4>Quick-log</h4><p>Spin the Digital Crown, pick a category, done — log a spend without reaching for your phone.</p></div></div>
         </div>
       </div>
     </section>
@@ -392,17 +404,18 @@
       <div class="pg-sechead rv">
         <span class="lp-kicker">// local-first by design</span>
         <h2 class="lp-h2">Private by default.</h2>
-        <p class="lp-sub" style="max-width:520px">Balances, goals and spending live on your device — not our servers. Backups are an encrypted file <b>you</b> hold.</p>
+        <p class="lp-sub" style="max-width:520px">On-device first. Optional Sign in with Apple stays on this phone. Optional iCloud sync writes to <b>your</b> CloudKit private database — end-to-end only if you turn on Advanced Data Protection.</p>
       </div>
       <div class="pg-stats rv">
         <div class="pg-stat" style="text-align:center"><div class="v">$<span data-count="0">0</span></div><div class="l">sent to our servers</div></div>
         <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="100">0</span>%</div><div class="l">on-device data</div></div>
-        <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="7">0</span></div><div class="l">spending categories</div></div>
+        <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="8">0</span></div><div class="l">spending categories</div></div>
         <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="1">0</span> tap</div><div class="l">to log a spend</div></div>
       </div>
       <div class="pg-spec">
-        <div class="rv">${spec("SPEC / PRIVACY", [["Storage", "On-device · encrypted backup file"], ["Account", "Optional — email only, for restore"], ["Telemetry", "None"], ["Ads / resale", "Never"]])}</div>
-        <div class="rv" style="transition-delay:.08s">${spec("SPEC / ENGINE", [["Allocation", "Priority tiers · funded top-down"], ["Forecast", "Funding date per goal, live"], ["What-if", "+$/mo and lump-sum simulation"], ["Streaks", "Daily log · milestones 7/30/100"]])}</div>
+        <div class="rv">${spec("SPEC / PRIVACY", [["Storage", "On-device · encrypted backup file"], ["Account", "Optional Sign in with Apple · on-device"], ["iCloud", "Optional · your CloudKit private DB"], ["Lock", "Hide amounts · Face Unlock · switcher blur"], ["Telemetry / ads", "None · never"]])}</div>
+        <div class="rv" style="transition-delay:.08s">${spec("SPEC / ENGINE", [["Allocation", "Top / Mid / Low · funded top-down"], ["Forecast", "Funding date per goal, live"], ["What-if", "+$/mo, cut spend, lump-sum"], ["Streaks", "Daily log · milestones 7/30/100"]])}</div>
+        <div class="rv" style="transition-delay:.16s">${spec("SPEC / SURFACES", [["Tabs", "Home · Track · Settings + floating +"], ["Log", "In-app · widgets · Siri · Watch"], ["Money", "USD · MYR · EUR · SGD · ECB FX"], ["Export", "CSV in · PDF statement · backup"]])}</div>
       </div>
     </section>
 
@@ -413,18 +426,19 @@
       </div>
       <div class="pg-faq">
         <details class="pg-q rv"><summary>Is it really free?</summary><p>Yes — free to download, no ads, and no account required. Open it and start logging.</p></details>
-        <details class="pg-q rv" style="transition-delay:.05s"><summary>Can you see my financial data?</summary><p>No. Balances, goals and spending live on your device. We run no servers for your data and collect no telemetry. Backups are an encrypted file you hold.</p></details>
-        <details class="pg-q rv" style="transition-delay:.1s"><summary>Do I need an account?</summary><p>No. Sign in with Apple is optional — only if you want to sync across your devices through your private iCloud. Skip it and everything stays on this one device.</p></details>
-        <details class="pg-q rv" style="transition-delay:.15s"><summary>Which platforms can I use it on?</summary><p>iPhone, with an Apple Watch companion — glance at your goals, add a complication to your watch face, and quick-log a spend from the wrist. Android is on the roadmap and will follow.</p></details>
-        <details class="pg-q rv" style="transition-delay:.2s"><summary>How does the funding date work?</summary><p>Rank your goals; Bezant funds them top-down from what you save and forecasts a live finish date for each. The what-if slider shows how an extra $/month pulls those dates earlier.</p></details>
+        <details class="pg-q rv" style="transition-delay:.05s"><summary>Can you see my financial data?</summary><p>No. Balances, goals and spending live on your device. We run no servers for your data and collect no telemetry. Backups are an encrypted file you hold. Optional iCloud sync goes to your own CloudKit private database; it is end-to-end encrypted only with Advanced Data Protection — without ADP, Apple can access that copy. We never can.</p></details>
+        <details class="pg-q rv" style="transition-delay:.1s"><summary>Do I need an account?</summary><p>No. Sign in with Apple is optional — stored on-device, not an account on our servers. Skip it and everything stays on this phone. Turn on iCloud sync if you want the same profiles on your other devices.</p></details>
+        <details class="pg-q rv" style="transition-delay:.15s"><summary>Which platforms can I use it on?</summary><p>iPhone, with an Apple Watch companion — glance at net worth, your top goal, and streak; add Top Goal, Net Worth, or Streak complications; and quick-log from the wrist.</p></details>
+        <details class="pg-q rv" style="transition-delay:.2s"><summary>How does the funding date work?</summary><p>Give each goal a Top, Mid, or Low tier. Bezant funds them top-down from what you save (plus any earmarked contributions) and forecasts a live finish date. The What-if planner on Home shows how extra $/month, a spending cut, or a lump sum pulls those dates earlier. On the monthly PDF, SURPLUS is that month’s actuals; goal dates use your usual planning surplus, so a one-time bonus or bill doesn’t move them.</p></details>
+        <details class="pg-q rv" style="transition-delay:.25s"><summary>Can I hide amounts?</summary><p>Settings → Hide amounts masks every figure as $••••. Face Unlock (Face ID / Touch ID) gates the reveal. With lock on, the app switcher snapshot is blurred too.</p></details>
       </div>
     </section>
 
     <section class="pg-sec" id="soon">
       <div class="lp-ctasec rv" style="padding:0">
         <div style="width:64px;height:64px;border-radius:20px;background:rgba(53,224,161,.12);display:grid;place-items:center;color:#35E0A1">${LOCK}</div>
-        <h2 class="lp-h2">Coming soon on iOS.</h2>
-        <p class="lp-sub" style="max-width:430px">Bezant is in the final stretch — free, private, and built for iPhone. The App Store listing lands shortly.</p>
+        <h2 class="lp-h2">Almost there.</h2>
+        <p class="lp-sub" style="max-width:430px">Bezant is in TestFlight prep — free, private, and built for iPhone + Apple Watch. The App Store listing lands shortly. No download link yet.</p>
         <span class="lp-btn-ghost pg-soon" aria-disabled="true">${APPLE} Coming soon on the App Store</span>
         <span class="lp-ctanote">FREE · PRIVATE · iPHONE + WATCH</span>
       </div>
