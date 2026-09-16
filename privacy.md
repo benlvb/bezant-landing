@@ -8,7 +8,7 @@ permalink: /privacy/
 
 **Effective date:** August 26, 2026
 **App:** Bezant (iOS)
-**Contact:** benliewvb@gmail.com
+**Contact:** ben@benliew.xyz
 
 Bezant is a personal finance planning app. The short version: **we don't collect, transmit, or sell your data.** This page exists because Apple requires every App Store app to link a privacy policy, and to clearly state what little data flow there is.
 
@@ -79,4 +79,4 @@ If we materially change this policy we'll update the "Effective date" above and 
 
 ## Contact
 
-Questions? Email **benliewvb@gmail.com**.
+Questions? Email **ben@benliew.xyz**.
