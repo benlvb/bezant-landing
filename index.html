@@ -190,9 +190,9 @@
   .pe-p1{animation:pePulse 2.7s ease-out infinite;}
   .pe-p2{animation:pePulse 2.7s ease-out .9s infinite;}
   .pe-p3{animation:pePulse 2.7s ease-out 1.8s infinite;}
-  /* middle-phone tap hint */
-  .pg-taphint{margin-top:7px;font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.14em;
-    color:#35E0A1;text-transform:uppercase;animation:pgHintPulse 2.4s ease-in-out infinite;}
+  /* middle-phone tap hint — overlay so it doesn't steal Home-mock height */
+  .pg-taphint{position:absolute;bottom:14px;left:0;right:0;margin:0;text-align:center;font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.14em;
+    color:#35E0A1;text-transform:uppercase;animation:pgHintPulse 2.4s ease-in-out infinite;pointer-events:none;}
   @keyframes pgHintPulse{0%,100%{opacity:.5}50%{opacity:1}}
 
   /* ---- responsive ladder ----
@@ -336,7 +336,7 @@
 
     <section class="pg-phones" id="phPar">
       <div class="pg-ph" data-px="-1" style="--r:-6deg;transform:rotate(-6deg) translateY(28px)"><span class="pg-try">DRAG THE SLIDER</span>${phone(demoGoal())}</div>
-      <div class="pg-ph" data-px="0" style="position:relative;z-index:2;animation-delay:.5s">${phone(screenHome())}</div>
+      <div class="pg-ph" data-px="0" style="position:relative;z-index:2;animation-delay:.5s"><span class="pg-try">TAP THE TOTAL</span>${phone(screenHome())}</div>
       <div class="pg-ph" data-px="1" style="--r:6deg;transform:rotate(6deg) translateY(28px);animation-delay:.9s"><span class="pg-try">TRY LOGGING ONE</span>${phone(demoTrack())}</div>
     </section>
 
@@ -562,7 +562,6 @@
   if (wealthEl) {
     wealthEl.style.cursor = "pointer";
     wealthEl.title = "Replay";
-    wealthEl.parentElement.insertAdjacentHTML("beforeend", `<div class="pg-taphint">tap the total ↺ replay</div>`);
     const renderW = (v) => { wealthEl.innerHTML = `<span class="c">$</span>${v.toLocaleString("en-US")}`; };
     const countWealth = () => {
       const target = 16700;
