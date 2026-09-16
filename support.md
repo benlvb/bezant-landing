@@ -24,16 +24,18 @@ No — by design. Bezant is a **manual-entry planner**, not a bookkeeping app. Y
 
 ### How do I sync across devices?
 
-Settings → **iCloud sync** → **Sync now**. The first sync after enabling pulls existing data from iCloud; subsequent saves push automatically (debounced). iCloud sync is end-to-end via Apple's CloudKit private database — you control the data, not us.
+Settings → **iCloud sync** → **Sync now**. The first sync after enabling pulls existing data from iCloud; subsequent saves push automatically (debounced). Sync writes to **your** iCloud account's CloudKit private database (as an asset). That copy is end-to-end encrypted only if you turn on [Advanced Data Protection](https://support.apple.com/en-us/102651) — without ADP, Apple can access it. We never can: we run no server and have no admin access to your container.
 
 ### How do allocation strategies work?
 
-Settings → **Allocation**. Two options:
+Settings → **Allocation**. Four options:
 
-- **Priority** (default): Each goal's share is weighted by its tier — Top (3) / Mid (2) / Low (1). When a goal hits its target the leftover cascades to the remaining goals by the same weights.
-- **Even**: The monthly surplus is split equally across all active goals.
+- **Weighted** (default): Each goal's share is weighted by its tier — Top (3) / Mid (2) / Low (1). When a goal hits its target the leftover cascades to the remaining goals by the same weights.
+- **Strict priority**: Fully fund the highest-priority goal before any lower-priority goal receives anything.
+- **Equal split**: The monthly surplus is split equally across all active goals. Spillover redistributes when a goal caps.
+- **Manual**: You set a fixed monthly contribution per goal.
 
-The What-if simulator (Home → **"What if…"** card) lets you preview how slider changes (extra contribution, expense cut, lump sum) shift your goal completion dates — without committing the changes.
+The What-if planner (Home → **"What if…"** card) lets you preview how slider changes (extra contribution, expense cut, lump sum) shift your goal completion dates — without committing the changes.
 
 ### How do I import expenses from a spreadsheet?
 
@@ -55,11 +57,11 @@ Within five seconds of any delete you'll see an **Undo** banner at the bottom of
 
 ### How do I hide amounts?
 
-Settings → **Hide amounts**. All values display as `$••••`. If you also enable **Face Unlock**, Face ID is required before amounts can be unhidden.
+Settings → **Hide amounts**. All values display as `$••••`. If you also enable **Face Unlock**, Face ID / Touch ID is required before amounts can be unhidden. With lock on, the app-switcher snapshot is blurred so balances don't flash in Recents.
 
 ### Currency / FX rates
 
-Currency selection in Settings → Currency. Conversion uses the European Central Bank's daily reference rates, fetched in the background once per day. If you're offline, Bezant uses the last cached rates (and falls back to a hardcoded MYR rate of 4.7 if there's never been a fetch).
+Currency selection in Settings → Currency (USD, MYR, EUR, SGD). Conversion uses the European Central Bank's daily reference rates, fetched in the background once per day. If you're offline, Bezant uses the last cached rates. If a rate still can't be resolved, display and entry fall back to USD together — there is no hardcoded FX fallback.
 
 ### Widgets / Siri
 
@@ -70,11 +72,11 @@ Long-press your Home Screen → Edit → Add Widget → search Bezant. Eight wid
 
 On iOS 18 there's also a **Quick Log** control for Control Center and the Action button.
 
-For Siri, say "What's my net worth?", "Log an expense in Bezant", or "Quick log in Bezant".
+For Siri, say "What's my net worth in Bezant?", "Log an expense in Bezant", or "Quick log in Bezant".
 
 ### PDF statements
 
-Settings → **Export PDF statement**. Generates a printable monthly summary you can share via Files, AirDrop, or any share-sheet target.
+Settings → **Export PDF statement**. Generates a printable monthly summary you can share via Files, AirDrop, or any share-sheet target. **SURPLUS** is that month's actuals (income minus expenses, including one-time logs). Goal dates on the same PDF use your usual **planning surplus** (recurring income minus recurring expenses), so a one-time bonus or bill does not move those dates.
 
 ## Bug reports and feature requests
 

@@ -73,15 +73,15 @@
   .lp-phone{width:280px;background:#000;border-radius:44px;padding:10px;flex:0 0 auto;
     box-shadow:0 0 0 1.5px #1c201d,0 40px 80px -30px rgba(0,0,0,.9);position:relative;}
   .lp-phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:84px;height:24px;background:#000;border-radius:14px;z-index:3;}
-  .lp-scr{background:#0A0C0B;border-radius:35px;overflow:hidden;height:560px;padding:46px 18px 18px;
-    display:flex;flex-direction:column;gap:13px;
+  .lp-scr{background:#0A0C0B;border-radius:35px;overflow:hidden;height:560px;padding:46px 18px 14px;
+    display:flex;flex-direction:column;gap:10px;
     background-image:radial-gradient(110% 50% at 88% -4%,rgba(53,224,161,.15),transparent 56%);}
   .lp-cap{font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.18em;color:#555C58;text-transform:uppercase;}
   .lp-big{font-size:34px;font-weight:650;letter-spacing:-.04em;}
   .lp-big .c{color:#555C58;}
   .lp-mini-sub{font-size:11px;color:#8B928B;}
   .lp-tilegrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
-  .lp-tile{position:relative;border-radius:15px;padding:12px;height:86px;overflow:hidden;
+  .lp-tile{position:relative;border-radius:15px;padding:12px;height:74px;overflow:hidden;
     background:linear-gradient(150deg,#10231b,#0a0f0c 70%);border:1px solid rgba(53,224,161,.16);
     display:flex;flex-direction:column;justify-content:flex-end;gap:1px;}
   .lp-tile.blue{background:linear-gradient(150deg,#0f1c28,#0a0d10 70%);border-color:rgba(94,168,224,.16);}
@@ -103,6 +103,30 @@
   .lp-railp.on{color:#35E0A1;background:rgba(53,224,161,.12);border-color:rgba(53,224,161,.3);}
   .lp-fundbar{height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;}
   .lp-fundbar i{display:block;height:100%;width:16%;border-radius:99px;background:linear-gradient(90deg,#1F8F66,#35E0A1);}
+  .lp-evt{display:flex;align-items:center;gap:8px;background:rgba(53,224,161,.08);border:1px solid rgba(53,224,161,.22);
+    border-radius:12px;padding:8px 10px;font-size:11px;}
+  .lp-evt b{font-weight:650;}
+  .lp-evt .when{margin-left:auto;font-family:ui-monospace,monospace;font-size:10px;color:#8B928B;}
+  .lp-cf{display:flex;gap:8px;}
+  .lp-cf i{flex:1;background:#111513;border:1px solid rgba(255,255,255,.06);border-radius:11px;padding:8px 9px;
+    display:flex;flex-direction:column;gap:2px;font-style:normal;}
+  .lp-cf .k{font-family:ui-monospace,monospace;font-size:8.5px;letter-spacing:.12em;color:#555C58;text-transform:uppercase;}
+  .lp-cf .v{font-family:ui-monospace,monospace;font-size:12px;font-weight:700;}
+  .lp-run{background:#111513;border:1px solid rgba(255,255,255,.06);border-radius:13px;padding:10px 12px;}
+  .lp-run .k{font-family:ui-monospace,monospace;font-size:8.5px;letter-spacing:.12em;color:#555C58;text-transform:uppercase;}
+  .lp-run .v{font-family:ui-monospace,monospace;font-size:18px;font-weight:700;letter-spacing:-.03em;margin-top:2px;}
+  .lp-whatif{display:flex;align-items:center;gap:10px;background:linear-gradient(120deg,rgba(53,224,161,.12),rgba(94,168,224,.08));
+    border:1px solid rgba(53,224,161,.22);border-radius:13px;padding:10px 12px;}
+  .lp-whatif .spark{width:28px;height:28px;border-radius:9px;background:#35E0A1;color:#04130d;display:grid;place-items:center;
+    font-size:13px;flex:0 0 auto;}
+  .lp-whatif .t{font-size:12.5px;font-weight:650;}
+  .lp-whatif .s{font-size:10.5px;color:#8B928B;}
+  .lp-tabbar{margin-top:auto;display:flex;align-items:center;gap:4px;background:rgba(17,21,19,.92);
+    border:1px solid rgba(255,255,255,.08);border-radius:99px;padding:5px 6px 5px 8px;}
+  .lp-tabbar span{flex:1;text-align:center;font-size:10px;font-weight:600;color:#555C58;padding:7px 0;border-radius:99px;}
+  .lp-tabbar span.on{color:#04130d;background:#35E0A1;}
+  .lp-tabbar .plus{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#35E0A1;color:#04130d;
+    display:grid;place-items:center;font-size:16px;font-weight:700;padding:0;}
 
   /* looping scenes */
   @keyframes lpSpin{to{transform:rotate(360deg)}}
@@ -165,13 +189,19 @@
       <div class="lp-mini-sub" style="margin:7px 0 8px"><b style="color:#35E0A1">16%</b> funded · $89,000 to go</div>
       <div class="lp-fundbar"><i></i></div>
     </div>
+    <div class="lp-evt"><span>✈</span><b>Japan trip</b><span class="when">12 days</span></div>
+    <div class="lp-cf">
+      <i><span class="k">In</span><span class="v" style="color:#35E0A1">+$4.2k</span></i>
+      <i><span class="k">Out</span><span class="v">−$2.0k</span></i>
+      <i><span class="k">Surplus</span><span class="v" style="color:#35E0A1">+$2.2k</span></i>
+    </div>
     <div class="lp-tilegrid">
       <div class="lp-tile">${ring(34, 0.16, "#35E0A1")}<span class="tl">Goals</span><span class="tv mono">4 active</span></div>
       <div class="lp-tile blue"><span class="lp-bars"><i style="height:30%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:75%"></i><i style="height:100%"></i></span><span class="tl">Saving</span><span class="tv mono">$16.7k</span></div>
     </div>
-    <div class="lp-cap" style="margin-top:2px">Funding plan</div>
-    <div class="lp-row"><span class="lp-dot" style="background:rgba(232,162,60,.16);color:#E8A23C">◆</span><span class="lp-rn">Marriage</span><span class="lp-ra mono" style="color:#8B928B">~Dec 26</span></div>
-    <div class="lp-row"><span class="lp-dot" style="background:rgba(63,207,200,.14);color:#3FCFC8">✈</span><span class="lp-rn">Vacation</span><span class="lp-ra mono" style="color:#8B928B">~Apr 27</span></div>`;
+    <div class="lp-run"><div class="k">Runway</div><div class="v mono">8 months</div></div>
+    <div class="lp-whatif"><span class="spark">✦</span><div><div class="t">What if…</div><div class="s">Planner · pull dates earlier</div></div></div>
+    <div class="lp-tabbar"><span class="on">Home</span><span>Track</span><span>Settings</span><span class="plus">+</span></div>`;
 
   const screenTrack = () => `
     <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:20px;font-weight:650;letter-spacing:-.03em">Track</span><span class="lp-cap">Spending</span></div>
