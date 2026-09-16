@@ -80,7 +80,7 @@ Settings → **Export PDF statement**. Generates a printable monthly summary you
 
 ## Bug reports and feature requests
 
-Email **benliewvb@gmail.com** with:
+Email **ben@benliew.xyz** with:
 - Your iOS version (Settings → General → About → Software Version)
 - Your Bezant version (Settings → scroll to bottom)
 - A description of what you saw vs. what you expected
@@ -94,4 +94,4 @@ See the [Privacy Policy](/privacy/).
 
 ## Contact
 
-**benliewvb@gmail.com**
+**ben@benliew.xyz**
