@@ -48,8 +48,10 @@
   .pg-scenes{display:flex;align-items:center;gap:30px;}
   .pg-btn-pulse{animation:pgPulse 2.6s ease-in-out infinite;}
   @keyframes pgPulse{0%,100%{box-shadow:0 0 26px -8px #35E0A1}50%{box-shadow:0 0 44px -6px #35E0A1}}
-  /* download placeholder — App Store listing isn't live yet (dashed = not actionable) */
-  .lp .pg-soon,.lp .pg-soon[disabled]{cursor:default;border-style:dashed;opacity:.9;color:#8B928B;}
+  /* live App Store CTA — mint fill already lives on .lp-btn; hover/focus here */
+  .lp a.lp-btn:hover{filter:brightness(1.07);}
+  .lp a.lp-navcta:hover{background:rgba(53,224,161,.16);}
+  .lp a.lp-btn:focus-visible,.lp a.lp-navcta:focus-visible{outline:2px solid #35E0A1;outline-offset:3px;}
 
   /* floating phones + parallax — narrow side padding so the 280px shells fit small screens */
   .pg-phones{display:flex;justify-content:center;align-items:flex-start;gap:30px;flex-wrap:wrap;
@@ -213,7 +215,7 @@
   @keyframes lpFloatFlat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
   /* phones: single-column everything, drop the nav anchor links (the page is one
-     short scroll — the "Coming soon" CTA stays), tidy the 4-up stat strip to 2×2 */
+     short scroll — the Download CTA stays), tidy the 4-up stat strip to 2×2 */
   @media (max-width:640px){
     .pg-nav .lp-links{display:none;}
     .lp-feats{grid-template-columns:1fr !important;}
@@ -230,7 +232,7 @@
     <div style="font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#35E0A1;font-family:ui-monospace,monospace">bezant</div>
     <h1 style="font-size:46px;font-weight:650;letter-spacing:-.04em;line-height:1.05;margin:18px 0 14px">Saving, but make it a streak.</h1>
     <p style="font-size:17px;line-height:1.6;color:#8B928B;margin:0 0 24px">Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it. A private, on-device money app for iPhone and Apple Watch.</p>
-    <p style="margin:0 0 28px;font-family:ui-monospace,monospace;font-size:14px;letter-spacing:.08em;color:#35E0A1">ALMOST THERE · APP STORE LISTING SOON</p>
+    <p style="margin:0 0 28px"><a href="https://apps.apple.com/app/bezant/id6777883001" style="display:inline-flex;align-items:center;gap:8px;background:#35E0A1;color:#04130d;font-size:15.5px;font-weight:650;padding:15px 28px;border-radius:14px;text-decoration:none">Get on the App Store</a></p>
     <p style="font-size:12px;color:#555C58"><a href="/privacy/" style="color:#8B928B">Privacy</a> · <a href="/support/" style="color:#8B928B">Support</a></p>
   </div>
 </noscript></div>
@@ -248,7 +250,9 @@
   const STEPS = `<div class="lp-steps"><b style="height:22px"><i></i></b><b style="height:34px"><i style="animation-delay:.3s"></i></b><b style="height:46px"><i style="animation-delay:.6s"></i></b><b style="height:58px"><i style="animation-delay:.9s"></i></b></div>`;
   const FLAME = `<svg class="lp-flame" width="44" height="46" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8C9.2 7 7 9 7 13.2a5 5 0 0 0 10 0c0-2.4-1.4-4-2.6-5.8.3 2-1 3-1.9 3.1C13 9.4 13.4 5.8 12 2.8Z"/></svg>`;
   const APPLE = `<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="margin-top:-2px"><path d="M16.4 12.8c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8ZM14.2 6c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.8 1 0 2-.5 2.6-1.3Z"/></svg>`;
-  const LOCK = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="10" width="15" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>`;
+  const APPLE_LG = `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.8c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8ZM14.2 6c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.8 1 0 2-.5 2.6-1.3Z"/></svg>`;
+  const STORE = "https://apps.apple.com/app/bezant/id6777883001";
+  const storeCta = (cls) => `<a class="${cls}" href="${STORE}">${APPLE} Get on the App Store</a>`;
 
   const words = (txt) => txt.split(" ").map((w, i) =>
     `<span class="w${/streak/.test(w) ? " mint" : ""}" style="animation-delay:${(0.08 + i * 0.07).toFixed(2)}s">${w}</span>`).join(" ");
@@ -320,7 +324,7 @@
       <nav class="lp-nav">
         <div class="lp-brand">${mark(26)}<span class="lp-wm">bezant</span></div>
         <div class="lp-links"><a href="#features">Features</a><a href="#watch">Watch</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a></div>
-        <a class="lp-navcta" href="#soon">Coming soon</a>
+        <a class="lp-navcta" href="${STORE}">Download</a>
       </nav>
     </div>
 
@@ -329,7 +333,7 @@
       <h1 class="pg-h1">${words("Saving, but make it a streak.")}</h1>
       <p class="lp-sub" style="max-width:480px">Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it.</p>
       <div style="display:flex;gap:12px;align-items:center">
-        <span class="lp-btn-ghost pg-soon" aria-disabled="true">${APPLE} Coming soon on the App Store</span>
+        ${storeCta("lp-btn pg-btn-pulse")}
       </div>
       <span class="lp-ctanote">FREE · PRIVATE · iPHONE + APPLE WATCH</span>
     </section>
@@ -434,12 +438,12 @@
       </div>
     </section>
 
-    <section class="pg-sec" id="soon">
+    <section class="pg-sec" id="download">
       <div class="lp-ctasec rv" style="padding:0">
-        <div style="width:64px;height:64px;border-radius:20px;background:rgba(53,224,161,.12);display:grid;place-items:center;color:#35E0A1">${LOCK}</div>
-        <h2 class="lp-h2">Almost there.</h2>
-        <p class="lp-sub" style="max-width:430px">Bezant is in TestFlight prep — free, private, and built for iPhone + Apple Watch. The App Store listing lands shortly. No download link yet.</p>
-        <span class="lp-btn-ghost pg-soon" aria-disabled="true">${APPLE} Coming soon on the App Store</span>
+        <div style="width:64px;height:64px;border-radius:20px;background:rgba(53,224,161,.12);display:grid;place-items:center;color:#35E0A1">${APPLE_LG}</div>
+        <h2 class="lp-h2">Get Bezant.</h2>
+        <p class="lp-sub" style="max-width:430px">Free, private, and built for iPhone + Apple Watch. On the App Store now.</p>
+        ${storeCta("lp-btn")}
         <span class="lp-ctanote">FREE · PRIVATE · iPHONE + WATCH</span>
       </div>
     </section>

@@ -121,6 +121,18 @@ for (const entry of readdirSync(assetDir)) {
 }
 if (!problems.length) ok("no extra files are reachable on the public site");
 
+// 9. Public App Store CTA must be live — not a Coming soon placeholder.
+if (/apps\.apple\.com\/app\/(?:bezant\/)?id6777883001/.test(html)) {
+  ok("App Store listing URL (id 6777883001) is present");
+} else {
+  fail("index.html has no App Store listing URL (id 6777883001)");
+}
+if (/Coming soon/i.test(html)) fail("index.html still contains “Coming soon” copy");
+else ok("no “Coming soon” copy on the landing page");
+const storeHrefs = [...html.matchAll(/href\s*=\s*["']([^"']*apps\.apple\.com[^"']*)["']/gi)].map((m) => m[1]);
+if (storeHrefs.length) ok(`App Store href(s): ${storeHrefs.join(", ")}`);
+else fail("no App Store href on the landing page");
+
 finish();
 
 function finish() {

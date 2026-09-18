@@ -52,11 +52,11 @@
   <text x="80" y="496" font-size="24" font-weight="500" fill="#E9ECE8">data never leaves your phone.</text>
 
   <!-- bottom: iOS button + url -->
-  <rect x="80" y="506" width="196" height="52" rx="15" fill="#35E0A1"/>
+  <rect x="80" y="506" width="248" height="52" rx="15" fill="#35E0A1"/>
   <g transform="translate(100,521) scale(0.95)" fill="#04130d">
     <path d="M16.4 12.8c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8ZM14.2 6c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.8 1 0 2-.5 2.6-1.3Z"/>
   </g>
-  <text x="130" y="539" font-size="20" font-weight="650" fill="#04130d">Coming soon</text>
+  <text x="130" y="539" font-size="20" font-weight="650" fill="#04130d">Download for iOS</text>
   <text class="mono" x="1120" y="539" font-size="18" fill="#555C58" text-anchor="end" letter-spacing="0.4">bezant.app</text>
 
   <!-- phone glance -->
