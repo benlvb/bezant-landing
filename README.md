@@ -4,7 +4,7 @@ Public site for **[Bezant](https://bezant.app)** — a private, on-device money 
 
 This repo is the Vercel site root (Root Directory = `.`): landing, privacy, and support. The iOS app lives in [`benlvb/bezant`](https://github.com/benlvb/bezant); engineering docs stay there.
 
-**App Store:** still Coming soon (TestFlight prep). There is no public listing URL — keep CTAs non-actionable. Do not add “Download now.”
+**App Store:** [Bezant on the App Store](https://apps.apple.com/app/bezant/id6777883001) (id 6777883001). Primary CTAs on the landing should open this listing — do not revert them to “Coming soon.”
 
 ## Product (match the app, not older marketing)
 
@@ -58,7 +58,7 @@ Vercel: import this repo, **Root Directory = `.`**. `vercel.json` runs `bundle e
 
 Domain: `bezant.app`.
 
-The 1200×630 share card is committed as `landing/og-image.png`. Source is `landing/og-card.svg` (Coming soon, not Download). Re-render with:
+The 1200×630 share card is committed as `landing/og-image.png`. Source is `landing/og-card.svg`. Re-render with:
 
 ```sh
 rsvg-convert -w 1200 -h 630 landing/og-card.svg -o landing/og-image.png
