@@ -6,6 +6,7 @@ theme: minima
 show_excerpts: false
 
 header_pages:
+  - what-is-bezant.md
   - privacy.md
   - support.md
 
@@ -19,7 +20,8 @@ permalink: /:basename/
 # This repository IS the site root (Vercel Root Directory = .).
 # Every file here is published by default — including plain .md with no
 # front matter, which Jekyll copies verbatim. Only index.html, privacy.md,
-# support.md and the landing/ assets are intended to be reachable.
+# support.md, what-is-bezant.md, sitemap.xml and the landing/ assets
+# are intended to be reachable.
 # Deploy smoke: harmless config touch to verify Vercel production builds.
 exclude:
   - README.md
