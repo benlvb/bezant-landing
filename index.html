@@ -24,6 +24,28 @@
 <meta name="twitter:title" content="Bezant — Saving, but make it a streak." />
 <meta name="twitter:description" content="Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it." />
 <meta name="twitter:image" content="https://bezant.app/landing/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Bezant",
+  "operatingSystem": "iOS 17+",
+  "applicationCategory": "FinanceApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Bezant is a private, on-device money app for iPhone and Apple Watch. Log spends in one tap, plan goals with real dates, and track trip expenses — no account, no bank linking.",
+  "url": "https://bezant.app/",
+  "downloadUrl": "https://apps.apple.com/app/id6777883001",
+  "author": {
+    "@type": "Person",
+    "name": "Ben Liew",
+    "email": "ben@benliew.xyz"
+  }
+}
+</script>
 <style>
   html,body{margin:0;background:#070908;}
   /* clip stray horizontal overflow without creating a scroll container (keeps sticky nav working) */
@@ -45,6 +67,9 @@
   .pg-h1 .mint{color:#35E0A1;position:relative;}
   .pg-h1 .mint::after{content:"";position:absolute;left:2%;right:2%;bottom:6px;height:12px;
     background:rgba(53,224,161,.18);border-radius:6px;z-index:-1;}
+  .pg-blurb{max-width:540px;font-size:14.5px;line-height:1.65;color:#8B928B;margin:2px 0 0;}
+  .pg-blurb a{color:#35E0A1;}
+  .pg-blurb a:hover{text-decoration:underline;}
   .pg-scenes{display:flex;align-items:center;gap:30px;}
   .pg-btn-pulse{animation:pgPulse 2.6s ease-in-out infinite;}
   @keyframes pgPulse{0%,100%{box-shadow:0 0 26px -8px #35E0A1}50%{box-shadow:0 0 44px -6px #35E0A1}}
@@ -232,8 +257,9 @@
     <div style="font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#35E0A1;font-family:ui-monospace,monospace">bezant</div>
     <h1 style="font-size:46px;font-weight:650;letter-spacing:-.04em;line-height:1.05;margin:18px 0 14px">Saving, but make it a streak.</h1>
     <p style="font-size:17px;line-height:1.6;color:#8B928B;margin:0 0 24px">Log a spend in one tap. Keep the flame alive. Watch every goal fill — with a real date on it. A private, on-device money app for iPhone and Apple Watch.</p>
+    <p style="font-size:14.5px;line-height:1.65;color:#8B928B;margin:0 0 24px">Bezant is a private on-device money app — log spends in one tap, plan goals with real dates, track trips without linking a bank. <a href="/what-is-bezant/" style="color:#35E0A1">What is Bezant?</a> · <a href="/support/" style="color:#35E0A1">Support &amp; FAQ</a> · <a href="https://apps.apple.com/app/id6777883001" style="color:#35E0A1">App Store</a></p>
     <p style="margin:0 0 28px"><a href="https://apps.apple.com/app/bezant/id6777883001" style="display:inline-flex;align-items:center;gap:8px;background:#35E0A1;color:#04130d;font-size:15.5px;font-weight:650;padding:15px 28px;border-radius:14px;text-decoration:none">Get on the App Store</a></p>
-    <p style="font-size:12px;color:#555C58"><a href="/privacy/" style="color:#8B928B">Privacy</a> · <a href="/support/" style="color:#8B928B">Support</a></p>
+    <p style="font-size:12px;color:#555C58"><a href="/what-is-bezant/" style="color:#8B928B">What is Bezant?</a> · <a href="/privacy/" style="color:#8B928B">Privacy</a> · <a href="/support/" style="color:#8B928B">Support</a></p>
   </div>
 </noscript></div>
 <script src="landing/lp-shared.js"></script>
@@ -336,6 +362,7 @@
         ${storeCta("lp-btn pg-btn-pulse")}
       </div>
       <span class="lp-ctanote">FREE · PRIVATE · iPHONE + APPLE WATCH</span>
+      <p class="pg-blurb">Bezant is a private on-device money app — log spends in one tap, plan goals with real dates, track trips without linking a bank. <a href="/what-is-bezant/">What is Bezant?</a> · <a href="/support/">Support &amp; FAQ</a> · <a href="https://apps.apple.com/app/id6777883001">App Store</a></p>
     </section>
 
     <section class="pg-phones" id="phPar">
@@ -450,7 +477,7 @@
 
     <footer class="lp-foot pg-foot">
       <span>© 2026 BEZANT</span>
-      <span class="pg-footlinks"><a href="/privacy/">PRIVACY</a> · <a href="/support/">SUPPORT</a></span>
+      <span class="pg-footlinks"><a href="/what-is-bezant/">WHAT IS BEZANT</a> · <a href="/privacy/">PRIVACY</a> · <a href="/support/">SUPPORT</a></span>
     </footer>
   </div>`;
 

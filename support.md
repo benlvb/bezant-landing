@@ -10,23 +10,52 @@ Bezant is a personal finance planning app for iOS. This page is the support URL 
 
 ## Common questions
 
-### How do I get started?
+### What is Bezant?
 
-Open Bezant. The first launch shows a three-card onboarding. **Skip** (on the first two cards) or **Try demo →** (on the last) drops you straight in with pre-seeded sample data; **Get started** sets up your own profile on an empty canvas. After that there are three tabs — **Home**, **Track** and **Settings** — plus one floating **+** button. Tap it for the create menu (log an expense, add a goal, add a saving); press and hold it to jump straight to Quick Log.
+A private, on-device money app for iPhone and Apple Watch. Plan goals, log expenses in one tap, and keep data on your device — no account required, no bank linking.
+
+### Does Bezant link to my bank?
+
+No. Manual-entry only.
+
+Bezant is a **manual-entry planner**, not a bookkeeping app. You enter your balances, incomes, and expenses yourself. This means: no bank credentials to share, no aggregator service in the loop, and your data never leaves your device unless you turn on iCloud sync.
+
+### Do I need an account?
+
+No. Sign in with Apple optional (local profile label only).
+
+You can skip sign-in entirely and the app works identically. Sign in with Apple is stored on-device — not an account on any server of ours.
 
 ### Where is my data stored?
 
-Locally on your iPhone, in iOS's `UserDefaults` system. Nothing is uploaded to any server we run.
+On iPhone by default. Optional iCloud = your CloudKit private DB; E2E needs Advanced Data Protection.
 
-### Does Bezant work with my bank?
+Locally, Bezant uses iOS's `UserDefaults` system. Nothing is uploaded to any server we run.
 
-No — by design. Bezant is a **manual-entry planner**, not a bookkeeping app. You enter your balances, incomes, and expenses yourself. This means: no bank credentials to share, no aggregator service in the loop, and your data never leaves your device unless you turn on iCloud sync.
+### Is Bezant free?
 
-### How do I sync across devices?
+Yes. v1.0 free on the App Store.
 
-Settings → **iCloud sync** → **Sync now**. The first sync after enabling pulls existing data from iCloud; subsequent saves push automatically (debounced). Sync writes to **your** iCloud account's CloudKit private database (as an asset). That copy is end-to-end encrypted only if you turn on [Advanced Data Protection](https://support.apple.com/en-us/102651) — without ADP, Apple can access it. We never can: we run no server and have no admin access to your container.
+### Can I log expenses quickly?
 
-### How do allocation strategies work?
+Yes — Quick Log, widgets, Siri, Watch; inbox until categorized.
+
+Long-press your Home Screen → Edit → Add Widget → search Bezant. Eight widgets ship:
+
+- **Home Screen:** Quick Log (medium and large), Quick Log (small), Net Worth, and Top Goal.
+- **Lock Screen:** Quick Log, Net Worth, Top Goal, and Streak.
+
+On iOS 18 there's also a **Quick Log** control for Control Center and the Action button.
+
+For Siri, say "What's my net worth in Bezant?", "Log an expense in Bezant", or "Quick log in Bezant".
+
+### What are streaks?
+
+Log a spend or $0 no-spend day for a daily flame; milestones 7/30/100.
+
+### Can I plan savings goals with dates?
+
+Yes; Top/Mid/Low; What-if on Home for funded-by dates.
 
 Settings → **Allocation**. Four options:
 
@@ -36,6 +65,43 @@ Settings → **Allocation**. Four options:
 - **Manual**: You set a fixed monthly contribution per goal.
 
 The What-if planner (Home → **"What if…"** card) lets you preview how slider changes (extra contribution, expense cut, lump sum) shift your goal completion dates — without committing the changes.
+
+### Can I track a trip or overseas expenses?
+
+Yes; Events for time-bounded trip budgets + category logs; manual entry, no bank import.
+
+### Does Bezant work on Apple Watch?
+
+Yes — glance, complications, Digital Crown quick-log.
+
+### Which currencies?
+
+USD, MYR, EUR, SGD via ECB rates.
+
+Currency selection in Settings → Currency. Conversion uses the European Central Bank's daily reference rates, fetched in the background once per day. If you're offline, Bezant uses the last cached rates. If a rate still can't be resolved, display and entry fall back to USD together — there is no hardcoded FX fallback.
+
+### How do I get help?
+
+Email **ben@benliew.xyz** — see [Support](/support/).
+
+Include:
+
+- Your iOS version (Settings → General → About → Software Version)
+- Your Bezant version (Settings → scroll to bottom)
+- A description of what you saw vs. what you expected
+- A screenshot if possible
+
+We read every message but reply on a best-effort basis — Bezant is a small project.
+
+## How to
+
+### How do I get started?
+
+Open Bezant. The first launch shows a three-card onboarding. **Skip** (on the first two cards) or **Try demo →** (on the last) drops you straight in with pre-seeded sample data; **Get started** sets up your own profile on an empty canvas. After that there are three tabs — **Home**, **Track** and **Settings** — plus one floating **+** button. Tap it for the create menu (log an expense, add a goal, add a saving); press and hold it to jump straight to Quick Log.
+
+### How do I sync across devices?
+
+Settings → **iCloud sync** → **Sync now**. The first sync after enabling pulls existing data from iCloud; subsequent saves push automatically (debounced). Sync writes to **your** iCloud account's CloudKit private database (as an asset). That copy is end-to-end encrypted only if you turn on [Advanced Data Protection](https://support.apple.com/en-us/102651) — without ADP, Apple can access it. We never can: we run no server and have no admin access to your container.
 
 ### How do I import expenses from a spreadsheet?
 
@@ -59,34 +125,9 @@ Within five seconds of any delete you'll see an **Undo** banner at the bottom of
 
 Settings → **Hide amounts**. All values display as `$••••`. If you also enable **Face Unlock**, Face ID / Touch ID is required before amounts can be unhidden. With lock on, the app-switcher snapshot is blurred so balances don't flash in Recents.
 
-### Currency / FX rates
-
-Currency selection in Settings → Currency (USD, MYR, EUR, SGD). Conversion uses the European Central Bank's daily reference rates, fetched in the background once per day. If you're offline, Bezant uses the last cached rates. If a rate still can't be resolved, display and entry fall back to USD together — there is no hardcoded FX fallback.
-
-### Widgets / Siri
-
-Long-press your Home Screen → Edit → Add Widget → search Bezant. Eight widgets ship:
-
-- **Home Screen:** Quick Log (medium and large), Quick Log (small), Net Worth, and Top Goal.
-- **Lock Screen:** Quick Log, Net Worth, Top Goal, and Streak.
-
-On iOS 18 there's also a **Quick Log** control for Control Center and the Action button.
-
-For Siri, say "What's my net worth in Bezant?", "Log an expense in Bezant", or "Quick log in Bezant".
-
 ### PDF statements
 
 Settings → **Export PDF statement**. Generates a printable monthly summary you can share via Files, AirDrop, or any share-sheet target. **SURPLUS** is that month's actuals (income minus expenses, including one-time logs). Goal dates on the same PDF use your usual **planning surplus** (recurring income minus recurring expenses), so a one-time bonus or bill does not move those dates.
-
-## Bug reports and feature requests
-
-Email **ben@benliew.xyz** with:
-- Your iOS version (Settings → General → About → Software Version)
-- Your Bezant version (Settings → scroll to bottom)
-- A description of what you saw vs. what you expected
-- A screenshot if possible
-
-We read every message but reply on a best-effort basis — Bezant is a small project.
 
 ## Privacy
 

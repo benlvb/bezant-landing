@@ -2,13 +2,13 @@
 
 Public site for **[Bezant](https://bezant.app)** — a private, on-device money planner for iPhone and Apple Watch.
 
-This repo is the Vercel site root (Root Directory = `.`): landing, privacy, and support. The iOS app lives in [`benlvb/bezant`](https://github.com/benlvb/bezant); engineering docs stay there.
+This repo is the Vercel site root (Root Directory = `.`): landing, what-is-bezant, privacy, and support. The iOS app lives in [`benlvb/bezant`](https://github.com/benlvb/bezant); engineering docs stay there.
 
 **App Store:** [Bezant on the App Store](https://apps.apple.com/app/bezant/id6777883001) (id 6777883001). Primary CTAs on the landing should open this listing — do not revert them to “Coming soon.”
 
 ## Product (match the app, not older marketing)
 
-Keep `index.html` / `support.md` honest against `benlvb/bezant` main. In particular:
+Keep `index.html` / `support.md` / `what-is-bezant.md` honest against `benlvb/bezant` main. In particular:
 
 - **3 tabs:** Home / Track / Settings + a floating **+**. No Home Coach, no Monday digest.
 - **Home:** greeting, TOTAL WEALTH, event banner (if any), cash flow, Goals/Saving tiles, money health, What-if planner.
@@ -24,11 +24,15 @@ Keep `index.html` / `support.md` honest against `benlvb/bezant` main. In particu
 | Path | URL |
 | --- | --- |
 | `index.html` | `/` |
+| `what-is-bezant.md` | `/what-is-bezant/` |
 | `privacy.md` | `/privacy/` |
 | `support.md` | `/support/` |
+| `sitemap.xml` | `/sitemap.xml` |
 | `landing/` | favicon, share card, shared JS |
 
-Jekyll copies `index.html` and `landing/` verbatim (no front matter). `/privacy/` and `/support/` are built from markdown.
+Jekyll copies `index.html`, `sitemap.xml`, and `landing/` verbatim (no front matter). `/what-is-bezant/`, `/privacy/`, and `/support/` are built from markdown.
+
+Citation layer: SoftwareApplication JSON-LD on `/` and `/what-is-bezant/`; FAQPage JSON-LD on `/support/`. No AggregateRating or invented rankings. Claims match shipped 1.0 only.
 
 ## Local preview
 
@@ -37,7 +41,7 @@ Jekyll copies `index.html` and `landing/` verbatim (no front matter). `/privacy/
 python3 -m http.server
 # open http://localhost:8000/
 
-# Full site (privacy + support pages):
+# Full site (what-is-bezant + privacy + support pages):
 bundle install
 bundle exec jekyll serve
 ```
@@ -50,7 +54,7 @@ Serve over HTTP, not `file://`, so the browser can load `landing/lp-shared.js`.
 node scripts/check-landing.mjs
 ```
 
-Parses both JS payloads, checks `lp-shared.js` resolves, and fails if anything in the tree isn’t either a public page or listed in `_config.yml` `exclude:`.
+Parses both JS payloads, checks `lp-shared.js` resolves, and fails if anything in the tree isn’t either a public page or listed in `_config.yml` `exclude:`. Also checks SoftwareApplication / FAQPage JSON-LD, `/what-is-bezant/` permalink, and sitemap URLs.
 
 ## Deploy
 
