@@ -8,8 +8,8 @@
  *   - index.html must reference lp-shared.js by a path that actually resolves
  *   - no Jekyll/Liquid tokens ({{ or {%) — they'd be mangled on the Jekyll build
  *   - no YAML front matter — Jekyll only serves the file verbatim without it
- *   - JSON-LD SoftwareApplication on `/` and `/what-is-bezant/` (no AggregateRating)
- *   - JSON-LD FAQPage on `/support/` (12 citation Q&As)
+ *   - JSON-LD SoftwareApplication on `/` and `/what-is-bezant/` via include (no AggregateRating)
+ *   - JSON-LD FAQPage on `/support/` via include (12 citation Q&As)
  *   - sitemap.xml lists `/`, `/what-is-bezant/`, `/support/`, `/privacy/`
  *
  * Usage: node scripts/check-landing.mjs   (exit 0 = pass, 1 = fail)
@@ -139,7 +139,6 @@ else fail("no App Store href on the landing page");
 // 10. Citation pages, sitemap, and JSON-LD (SoftwareApplication / FAQPage).
 const whatIs = readFileSync(join(pageDir, "what-is-bezant.md"), "utf8");
 const support = readFileSync(join(pageDir, "support.md"), "utf8");
-const customHead = readFileSync(join(pageDir, "_includes", "custom-head.html"), "utf8");
 const softwareInc = readFileSync(join(pageDir, "_includes", "jsonld-software-application.html"), "utf8");
 const faqInc = readFileSync(join(pageDir, "_includes", "jsonld-faqpage.html"), "utf8");
 const sitemap = readFileSync(join(pageDir, "sitemap.xml"), "utf8");
@@ -155,15 +154,15 @@ if (/^---[\s\S]*layout:\s*page[\s\S]*permalink:\s*\/support\/[\s\S]*---/.test(su
   fail("support.md must use layout: page and permalink: /support/");
 }
 
-if (/page\.path\s*==\s*"what-is-bezant\.md"/.test(customHead) && /jsonld-software-application\.html/.test(customHead)) {
-  ok("custom-head.html emits SoftwareApplication JSON-LD on /what-is-bezant/");
+if (/{%\s*include\s+jsonld-software-application\.html\s*%}/.test(whatIs)) {
+  ok("what-is-bezant.md includes SoftwareApplication JSON-LD");
 } else {
-  fail("custom-head.html does not include SoftwareApplication JSON-LD for what-is-bezant.md");
+  fail("what-is-bezant.md does not include jsonld-software-application.html");
 }
-if (/page\.path\s*==\s*"support\.md"/.test(customHead) && /jsonld-faqpage\.html/.test(customHead)) {
-  ok("custom-head.html emits FAQPage JSON-LD on /support/");
+if (/{%\s*include\s+jsonld-faqpage\.html\s*%}/.test(support)) {
+  ok("support.md includes FAQPage JSON-LD");
 } else {
-  fail("custom-head.html does not include FAQPage JSON-LD for support.md");
+  fail("support.md does not include jsonld-faqpage.html");
 }
 
 const ldJson = (src, label) => {

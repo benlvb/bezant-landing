@@ -5,6 +5,8 @@ permalink: /what-is-bezant/
 description: Bezant is a private, on-device money app for iPhone and Apple Watch. Log spends in one tap, plan goals with real dates, and track trip expenses — no account, no bank linking.
 ---
 
+{% include jsonld-software-application.html %}
+
 # What is Bezant?
 
 Bezant is a private, on-device personal finance app for iPhone and Apple Watch. It helps you plan where money should go and log where it went — in one tap.

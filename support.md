@@ -4,6 +4,8 @@ title: Support
 permalink: /support/
 ---
 
+{% include jsonld-faqpage.html %}
+
 # Bezant Support
 
 Bezant is a personal finance planning app for iOS. This page is the support URL we list on App Store Connect.
