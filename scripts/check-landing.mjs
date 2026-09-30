@@ -213,7 +213,7 @@ if (homeLd[0] && softwareLd[0] && JSON.stringify(homeLd[0]) !== JSON.stringify(s
 const FAQ = [
   ["What is Bezant?", "A private, on-device money app for iPhone and Apple Watch. Plan goals, log expenses in one tap, and keep data on your device — no account required, no bank linking."],
   ["Does Bezant link to my bank?", "No. Manual-entry only."],
-  ["Do I need an account?", "No. Sign in with Apple optional (local profile label only)."],
+  ["Do I need an account?", "No. Bezant has no accounts, and you never need to sign in."],
   ["Where is my data stored?", "On iPhone by default. Optional iCloud = your CloudKit private DB; E2E needs Advanced Data Protection."],
   ["Is Bezant free?", "Yes. v1.0 free on the App Store."],
   ["Can I log expenses quickly?", "Yes — Quick Log, widgets, Siri, Watch; inbox until categorized."],
