@@ -26,7 +26,7 @@ Bezant is a **manual-entry planner**, not a bookkeeping app. You enter your bala
 
 No. Bezant has no accounts, and you never need to sign in.
 
-Version 1.0 offered an optional Sign in with Apple that only labelled your local profile; it was stored on-device, never an account on any server of ours, and skipping it changed nothing.
+Version 1.0 offered an optional Sign in with Apple. It was never an account on any server of ours, and skipping it changed nothing. It named your first profile after you; that name syncs with the profile if iCloud sync is on, and you can rename it in Settings → Profiles. See the [privacy policy](/privacy/) for details.
 
 ### Where is my data stored?
 
@@ -118,6 +118,10 @@ A few things worth knowing before you paste a bank statement:
 ### How do I back up?
 
 Settings → **Save backup to Files**. Saves a JSON snapshot you can keep in iCloud Drive or Files. To restore, **Migrate from backup**.
+
+### How do I erase all my data?
+
+Settings → **Your data** → **Erase all data** (in 1.0: Settings → Account → Delete account & data). It removes every profile from this device and strips your data from your iCloud, then starts Bezant fresh. It needs iCloud to be reachable; if you are not signed in to iCloud, it erases nothing, and uninstalling Bezant removes everything on the device.
 
 ### I deleted something by mistake.
 
