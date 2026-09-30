@@ -14,7 +14,7 @@ Keep `index.html` / `support.md` / `what-is-bezant.md` honest against `benlvb/be
 - **Home:** greeting, TOTAL WEALTH, event banner (if any), cash flow, Goals/Saving tiles, money health, What-if planner.
 - **Logging:** in-app number pad, Home Screen / Lock Screen widgets, Siri (“What’s my net worth in Bezant?”, “Log an expense…”, “Quick log…”), Apple Watch companion (glance, complications, crown quick-log).
 - **Goals:** Top / Mid / Low tiers (not 1–5), contributions, live funding dates. Monthly PDF **SURPLUS** is that month’s actuals; goal dates use planning surplus.
-- **Privacy:** on-device first. Optional Sign in with Apple (on-device — not “email only for restore”). Optional iCloud via the user’s CloudKit private DB; end-to-end only with Advanced Data Protection. Hide amounts + Face Unlock; app-switcher blur when lock is on.
+- **Privacy:** on-device first. No accounts and, from app 1.1, no sign-in (1.0 had an optional on-device Sign in with Apple; describe it only as history). Data deletion is Settings → Your data → Erase all data (1.0: Account → Delete account & data). Optional iCloud via the user’s CloudKit private DB; end-to-end only with Advanced Data Protection. Hide amounts + Face Unlock; app-switcher blur when lock is on.
 - **Also ships:** 8 spending categories; USD / MYR / EUR / SGD + ECB FX; CSV import, PDF statement, backup/restore, multiple profiles.
 
 `privacy.md` is the App Store privacy URL. Don’t regress the ADP wording.

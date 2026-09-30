@@ -435,7 +435,7 @@
       <div class="pg-sechead rv">
         <span class="lp-kicker">// local-first by design</span>
         <h2 class="lp-h2">Private by default.</h2>
-        <p class="lp-sub" style="max-width:520px">On-device first. Optional Sign in with Apple stays on this phone. Optional iCloud sync writes to <b>your</b> CloudKit private database — end-to-end only if you turn on Advanced Data Protection.</p>
+        <p class="lp-sub" style="max-width:520px">On-device first. No account, and no sign-in needed. Optional iCloud sync writes to <b>your</b> CloudKit private database — end-to-end only if you turn on Advanced Data Protection.</p>
       </div>
       <div class="pg-stats rv">
         <div class="pg-stat" style="text-align:center"><div class="v">$<span data-count="0">0</span></div><div class="l">sent to our servers</div></div>
@@ -444,7 +444,7 @@
         <div class="pg-stat" style="text-align:center"><div class="v"><span data-count="1">0</span> tap</div><div class="l">to log a spend</div></div>
       </div>
       <div class="pg-spec">
-        <div class="rv">${spec("SPEC / PRIVACY", [["Storage", "On-device · encrypted backup file"], ["Account", "Optional Sign in with Apple · on-device"], ["iCloud", "Optional · your CloudKit private DB"], ["Lock", "Hide amounts · Face Unlock · switcher blur"], ["Telemetry / ads", "None · never"]])}</div>
+        <div class="rv">${spec("SPEC / PRIVACY", [["Storage", "On-device · encrypted backup file"], ["Account", "None · no sign-in needed"], ["iCloud", "Optional · your CloudKit private DB"], ["Lock", "Hide amounts · Face Unlock · switcher blur"], ["Telemetry / ads", "None · never"]])}</div>
         <div class="rv" style="transition-delay:.08s">${spec("SPEC / ENGINE", [["Allocation", "Top / Mid / Low · funded top-down"], ["Forecast", "Funding date per goal, live"], ["What-if", "+$/mo, cut spend, lump-sum"], ["Streaks", "Daily log · milestones 7/30/100"]])}</div>
         <div class="rv" style="transition-delay:.16s">${spec("SPEC / SURFACES", [["Tabs", "Home · Track · Settings + floating +"], ["Log", "In-app · widgets · Siri · Watch"], ["Money", "USD · MYR · EUR · SGD · ECB FX"], ["Export", "CSV in · PDF statement · backup"]])}</div>
       </div>
@@ -458,7 +458,7 @@
       <div class="pg-faq">
         <details class="pg-q rv"><summary>Is it really free?</summary><p>Yes — free to download, no ads, and no account required. Open it and start logging.</p></details>
         <details class="pg-q rv" style="transition-delay:.05s"><summary>Can you see my financial data?</summary><p>No. Balances, goals and spending live on your device. We run no servers for your data and collect no telemetry. Backups are an encrypted file you hold. Optional iCloud sync goes to your own CloudKit private database; it is end-to-end encrypted only with Advanced Data Protection — without ADP, Apple can access that copy. We never can.</p></details>
-        <details class="pg-q rv" style="transition-delay:.1s"><summary>Do I need an account?</summary><p>No. Sign in with Apple is optional — stored on-device, not an account on our servers. Skip it and everything stays on this phone. Turn on iCloud sync if you want the same profiles on your other devices.</p></details>
+        <details class="pg-q rv" style="transition-delay:.1s"><summary>Do I need an account?</summary><p>No. Bezant has no accounts, and you never need to sign in. Everything stays on this phone. Turn on iCloud sync if you want the same profiles on your other devices.</p></details>
         <details class="pg-q rv" style="transition-delay:.15s"><summary>Which platforms can I use it on?</summary><p>iPhone, with an Apple Watch companion — glance at net worth, your top goal, and streak; add Top Goal, Net Worth, or Streak complications; and quick-log from the wrist.</p></details>
         <details class="pg-q rv" style="transition-delay:.2s"><summary>How does the funding date work?</summary><p>Give each goal a Top, Mid, or Low tier. Bezant funds them top-down from what you save (plus any earmarked contributions) and forecasts a live finish date. The What-if planner on Home shows how extra $/month, a spending cut, or a lump sum pulls those dates earlier. On the monthly PDF, SURPLUS is that month’s actuals; goal dates use your usual planning surplus, so a one-time bonus or bill doesn’t move them.</p></details>
         <details class="pg-q rv" style="transition-delay:.25s"><summary>Can I hide amounts?</summary><p>Settings → Hide amounts masks every figure as $••••. Face Unlock (Face ID / Touch ID) gates the reveal. With lock on, the app switcher snapshot is blurred too.</p></details>

@@ -24,9 +24,9 @@ Bezant is a **manual-entry planner**, not a bookkeeping app. You enter your bala
 
 ### Do I need an account?
 
-No. Sign in with Apple optional (local profile label only).
+No. Bezant has no accounts, and you never need to sign in.
 
-You can skip sign-in entirely and the app works identically. Sign in with Apple is stored on-device — not an account on any server of ours.
+Version 1.0 offered an optional Sign in with Apple that only labelled your local profile; it was stored on-device, never an account on any server of ours, and skipping it changed nothing.
 
 ### Where is my data stored?
 
@@ -99,7 +99,7 @@ We read every message but reply on a best-effort basis — Bezant is a small pro
 
 ### How do I get started?
 
-Open Bezant. The first launch shows a three-card onboarding. **Skip** (on the first two cards) or **Try demo →** (on the last) drops you straight in with pre-seeded sample data; **Get started** sets up your own profile on an empty canvas. After that there are three tabs — **Home**, **Track** and **Settings** — plus one floating **+** button. Tap it for the create menu (log an expense, add a goal, add a saving); press and hold it to jump straight to Quick Log.
+Open Bezant. From version 1.1 the first launch is two short screens: tap **Continue**, pick your currency, then **Start** for an empty profile of your own (**Skip** does the same with your region's currency), or tap **Explore with sample data** to look around first; Settings → **Exit demo** clears it. If Bezant finds your data in iCloud on a new install, it offers to restore it. In version 1.0 the first launch was a three-card onboarding with **Try demo** and **Get started**. After that there are three tabs — **Home**, **Track** and **Settings** — plus one floating **+** button. Tap it for the create menu (log an expense, add a goal, add a saving); press and hold it to jump straight to Quick Log.
 
 ### How do I sync across devices?
 
