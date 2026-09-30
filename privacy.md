@@ -24,13 +24,13 @@ Bezant has no accounts. From version 1.1 it asks for no sign-in at all: no name,
 **Version 1.0** offered an optional **Sign in with Apple** during onboarding, to label your local profile. It was never an account on any server of ours:
 
 - If you used it, Apple gave the app your chosen name and email (or a private relay address, if you chose "Hide My Email") plus an opaque per-app user identifier. These were stored on your device. We do not transmit, log, or receive them — there is no server to send them to.
-- 1.0 also **named your first profile** after that name (or, if you did not share a name, after the start of your email address). A profile's name is part of what syncs: with iCloud sync on, it travels with the profile to your own iCloud and your other devices, as described below. You can rename a profile at any time in Settings → Profiles.
+- 1.0 also **named your first profile** after that name (or, if you did not share a name, after the start of your email address). A profile's name is part of what syncs: with iCloud sync on, it travels with the profile to your own iCloud and your other devices, as described below. You can rename a profile at any time: tap your profile at the top of Bezant's Settings.
 - Version 1.1 removes Sign in with Apple. Erasing all data (below) removes what 1.0 stored on the device and strips the profile names from iCloud. Uninstalling removes what is on the device, but not the copy in your iCloud.
-- Bezant stays listed under your Apple ID's Sign in with Apple apps until you remove it there: iPhone Settings → your name → Sign-In & Security → Sign in with Apple.
+- Bezant stays in the list of apps using Sign in with Apple in your Apple ID settings until you remove it there.
 
 **Erasing your data:** Settings → Your data → *Erase all data* (in 1.0: Settings → Account → *Delete account & data*) removes every profile from your device and strips your data from your iCloud. Two limits:
 
-- It clears your iCloud copy first, so it needs iCloud: if you are not signed in to iCloud, or iCloud cannot be reached, it stops and erases nothing. Uninstalling Bezant always removes everything stored on the device.
+- It clears your iCloud copy first, so it needs iCloud: if you are not signed in to iCloud, or iCloud cannot be reached, it stops and erases nothing. Uninstalling Bezant removes everything Bezant keeps on the device (a backup you saved to Files is yours, and stays).
 - If Bezant is offering you an older on-device copy of your data (shown in Settings when saved data could not be read), that copy is kept until you discard it.
 
 ## Data stored on your device
