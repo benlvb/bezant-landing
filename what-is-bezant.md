@@ -11,7 +11,7 @@ description: Bezant is a private, on-device money app for iPhone and Apple Watch
 
 Bezant is a private, on-device personal finance app for iPhone and Apple Watch. It helps you plan where money should go and log where it went — in one tap.
 
-**No account required. No bank linking. No ads.** Your numbers stay on your device. Optional iCloud sync uses *your* CloudKit private database; Bezant does not run a server that stores your finances.
+**No account required. No bank linking. No ads.** Your numbers live on your device and, whenever it's signed in to iCloud, sync to *your* CloudKit private database (you can turn that off for Bezant in iOS Settings); Bezant does not run a server that stores your finances.
 
 ## What you can do
 - **Log spending fast** — in-app Quick Log, Home Screen widgets, Siri, or Apple Watch. Keep a daily streak.
