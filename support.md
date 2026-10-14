@@ -20,7 +20,7 @@ A private, on-device money app for iPhone and Apple Watch. Plan goals, log expen
 
 No. Manual-entry only.
 
-Bezant is a **manual-entry planner**, not a bookkeeping app. You enter your balances, incomes, and expenses yourself. This means: no bank credentials to share, no aggregator service in the loop, and nothing leaves your device except the sync to your own iCloud, which runs whenever your iPhone is signed in to iCloud.
+Bezant is a **manual-entry planner**, not a bookkeeping app. You enter your balances, incomes, and expenses yourself. This means: no bank credentials to share, no aggregator service in the loop, and your data never leaves your devices except the sync to your own iCloud, which runs whenever your iPhone is signed in to iCloud (unless you turn iCloud off for Bezant).
 
 ### Do I need an account?
 
@@ -30,7 +30,7 @@ Version 1.0 offered an optional Sign in with Apple. It was never an account on a
 
 ### Where is my data stored?
 
-On iPhone by default. Optional iCloud = your CloudKit private DB; E2E needs Advanced Data Protection.
+On your iPhone, and in your own CloudKit private DB whenever it's signed in to iCloud, unless you turn iCloud off for Bezant; E2E needs Advanced Data Protection.
 
 Locally, Bezant uses iOS's `UserDefaults` system. Nothing is uploaded to any server we run.
 
@@ -101,9 +101,9 @@ Open Bezant. From version 1.1 the first launch is two short screens: tap **Conti
 
 ### How do I sync across devices?
 
-There is nothing to turn on: whenever your iPhone is signed in to iCloud, Bezant syncs on its own. It pulls from iCloud when the app launches and pushes your changes shortly after each save; Settings → **iCloud sync** → **Sync now** syncs on demand. Sync writes to **your** iCloud account's CloudKit private database (as an asset). That copy is end-to-end encrypted only if you turn on [Advanced Data Protection](https://support.apple.com/en-us/102651) — without ADP, Apple can access it. We never can: we run no server and have no admin access to your container.
+There is nothing to turn on: whenever your iPhone is signed in to iCloud, Bezant syncs on its own, unless you turn iCloud off for Bezant (below). It pulls from iCloud when the app launches and pushes your changes shortly after each save; Settings → **iCloud sync** → **Sync now** syncs on demand. Sync writes to **your** iCloud account's CloudKit private database (as an asset). That copy is end-to-end encrypted only if you turn on [Advanced Data Protection](https://support.apple.com/en-us/102651) — without ADP, Apple can access it. We never can: we run no server and have no admin access to your container.
 
-To stop syncing, turn iCloud off for Bezant in the iOS Settings app: tap your name, then **iCloud**, then **See All** next to *Saved to iCloud*, then tap Bezant ([Apple's steps](https://support.apple.com/en-us/118225)). That stops future syncing but leaves the copy already in your iCloud; to remove it, erase all data (below) first.
+To stop syncing, turn iCloud off for Bezant in the iOS Settings app: tap your name, then **iCloud**, then **See All** next to *Saved to iCloud*, then tap Bezant ([Apple's steps](https://support.apple.com/en-us/118225)). That stops future syncing, but Bezant does not erase the copy already in your iCloud; to remove it, erase all data (below) first. If you have already turned it off, turn it back on for Bezant, then erase.
 
 ### Using Bezant on more than one device
 
@@ -127,11 +127,13 @@ Settings → **Save backup to Files**. Saves a JSON snapshot you can keep in iCl
 
 Settings → **Your data** → **Erase all data** (in 1.0: Settings → Account → Delete account & data). It removes every profile from this device and starts Bezant fresh. What happens to your iCloud copy depends on iCloud when you erase:
 
-- **Signed in to iCloud:** it also strips your data from your iCloud.
-- **Not signed in to iCloud:** it erases this iPhone only. Anything synced to your iCloud earlier stays there until you erase again while signed in.
-- **Signed in, but iCloud can't be reached** (for example, you're offline): it erases nothing and asks you to try again.
+- **Signed in to iCloud, with iCloud on for Bezant:** it also strips your data from your iCloud.
+- **Not signed in to iCloud:** it erases this iPhone only. Anything synced to your iCloud earlier stays there until you erase again while signed in with iCloud on for Bezant, and it can sync back to this iPhone if you sign in to iCloud on it again.
+- **Signed in with iCloud on for Bezant, but iCloud can't be reached** (for example, you're offline): it erases nothing and asks you to try again.
 
-In 1.0 it erases nothing unless you are signed in to iCloud and it can be reached. Uninstalling Bezant removes everything Bezant keeps on the device, but not your iCloud copy (a backup you saved to Files stays too).
+If you have turned iCloud off for Bezant, turn it back on before you erase, so the erase can reach your iCloud copy.
+
+In 1.0 it erases nothing unless Bezant can reach your iCloud. Uninstalling Bezant removes everything Bezant keeps on the device, but not your iCloud copy (a backup you saved to Files stays too).
 
 ### I deleted something by mistake.
 

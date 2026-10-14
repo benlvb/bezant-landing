@@ -214,7 +214,7 @@ const FAQ = [
   ["What is Bezant?", "A private, on-device money app for iPhone and Apple Watch. Plan goals, log expenses in one tap, and keep data on your device — no account required, no bank linking."],
   ["Does Bezant link to my bank?", "No. Manual-entry only."],
   ["Do I need an account?", "No. Bezant has no accounts, and you never need to sign in."],
-  ["Where is my data stored?", "On iPhone by default. Optional iCloud = your CloudKit private DB; E2E needs Advanced Data Protection."],
+  ["Where is my data stored?", "On your iPhone, and in your own CloudKit private DB whenever it's signed in to iCloud, unless you turn iCloud off for Bezant; E2E needs Advanced Data Protection."],
   ["Is Bezant free?", "Yes. v1.0 free on the App Store."],
   ["Can I log expenses quickly?", "Yes — Quick Log, widgets, Siri, Watch; inbox until categorized."],
   ["What are streaks?", "Log a spend or $0 no-spend day for a daily flame; milestones 7/30/100."],
