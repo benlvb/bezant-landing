@@ -385,7 +385,7 @@
         </div>
         <div class="lp-feat rv" style="transition-delay:.08s">
           <div class="lp-fstage">${STEPS}</div>
-          <h3>Goals that climb</h3><p>Rank Top, Mid, or Low. Manual contributions earmark wealth; leftover funds top-down. Each goal gets a live finish date — confetti when you summit.</p>
+          <h3>Goals that climb</h3><p>Rank Top, Mid, or Low. Manual contributions earmark wealth; what's left is shared by tier, more for Top. Each goal gets a live finish date — confetti when you summit.</p>
         </div>
         <div class="lp-feat rv" style="transition-delay:.16s">
           <div class="lp-fstage">${COINS}</div>
@@ -445,7 +445,7 @@
       </div>
       <div class="pg-spec">
         <div class="rv">${spec("SPEC / PRIVACY", [["Storage", "On-device · encrypted backup file"], ["Account", "None · no sign-in needed"], ["iCloud", "When signed in · your CloudKit private DB"], ["Lock", "Hide amounts · Face Unlock · switcher blur"], ["Telemetry / ads", "None · never"]])}</div>
-        <div class="rv" style="transition-delay:.08s">${spec("SPEC / ENGINE", [["Allocation", "Top / Mid / Low · funded top-down"], ["Forecast", "Funding date per goal, live"], ["What-if", "+$/mo, cut spend, lump-sum"], ["Streaks", "Daily log · milestones 7/30/100"]])}</div>
+        <div class="rv" style="transition-delay:.08s">${spec("SPEC / ENGINE", [["Allocation", "Top / Mid / Low · shared by tier"], ["Forecast", "Funding date per goal, live"], ["What-if", "+$/mo, cut spend, lump-sum"], ["Streaks", "Daily log · milestones 7/30/100"]])}</div>
         <div class="rv" style="transition-delay:.16s">${spec("SPEC / SURFACES", [["Tabs", "Home · Track · Settings + floating +"], ["Log", "In-app · widgets · Siri · Watch"], ["Money", "USD · MYR · EUR · SGD · ECB FX"], ["Export", "CSV in · PDF statement · backup"]])}</div>
       </div>
     </section>
@@ -460,7 +460,7 @@
         <details class="pg-q rv" style="transition-delay:.05s"><summary>Can you see my financial data?</summary><p>No. Balances, goals and spending live on your device. We run no servers for your data and collect no telemetry. Backups are an encrypted file you hold. While you're signed in to iCloud, Bezant syncs to your own CloudKit private database; it is end-to-end encrypted only with Advanced Data Protection — without ADP, Apple can access that copy. We never can.</p></details>
         <details class="pg-q rv" style="transition-delay:.1s"><summary>Do I need an account?</summary><p>No. Bezant has no accounts, and you never need to sign in. Your data lives on this phone, and while the phone is signed in to iCloud, Bezant syncs it through your own iCloud so your other devices get the same profiles.</p></details>
         <details class="pg-q rv" style="transition-delay:.15s"><summary>Which platforms can I use it on?</summary><p>iPhone, with an Apple Watch companion — glance at net worth, your top goal, and streak; add Top Goal, Net Worth, or Streak complications; and quick-log from the wrist.</p></details>
-        <details class="pg-q rv" style="transition-delay:.2s"><summary>How does the funding date work?</summary><p>Give each goal a Top, Mid, or Low tier. Bezant funds them top-down from what you save (plus any earmarked contributions) and forecasts a live finish date. The What-if planner on Home shows how extra $/month, a spending cut, or a lump sum pulls those dates earlier. On the monthly PDF, SURPLUS is that month’s actuals; goal dates use your usual planning surplus, so a one-time bonus or bill doesn’t move them.</p></details>
+        <details class="pg-q rv" style="transition-delay:.2s"><summary>How does the funding date work?</summary><p>Give each goal a Top, Mid, or Low tier. Bezant shares what you save, plus any earmarked contributions, across them by tier — more for Top — and forecasts a live finish date. The What-if planner on Home shows how extra $/month, a spending cut, or a lump sum pulls those dates earlier. On the monthly PDF, SURPLUS is that month’s actuals; goal dates use your usual planning surplus, so a one-time bonus or bill doesn’t move them.</p></details>
         <details class="pg-q rv" style="transition-delay:.25s"><summary>Can I hide amounts?</summary><p>Settings → Hide amounts masks every figure as $••••. Face Unlock (Face ID / Touch ID) gates the reveal. With lock on, the app switcher snapshot is blurred too.</p></details>
       </div>
     </section>

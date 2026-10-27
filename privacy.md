@@ -7,7 +7,7 @@ permalink: /privacy/
 # Privacy Policy
 
 **Effective date:** August 26, 2026
-**Last updated:** October 14, 2026 (version 1.1: no sign-in, how iCloud sync starts and stops, and Erase all data without iCloud)
+**Last updated:** October 27, 2026 (version 1.2: no sign-in, how iCloud sync starts and stops, and Erase all data when iCloud is off)
 **App:** Bezant (iOS)
 **Contact:** ben@benliew.xyz
 
@@ -19,22 +19,19 @@ Bezant is a personal finance planning app. The short version: **we don't collect
 
 ## No accounts, no sign-in
 
-Bezant has no accounts. From version 1.1 it asks for no sign-in at all: no name, no email, no login.
+Bezant has no accounts. From version 1.2 it asks for no sign-in at all: no name, no email, no login.
 
 **Version 1.0** offered an optional **Sign in with Apple** during onboarding, to label your local profile. It was never an account on any server of ours:
 
 - If you used it, Apple gave the app your chosen name and email (or a private relay address, if you chose "Hide My Email") plus an opaque per-app user identifier. These were stored on your device. We do not transmit, log, or receive them — there is no server to send them to.
 - 1.0 also **named your first profile** after that name (or, if you did not share a name, after the start of your email address). A profile's name is part of what syncs: when Bezant syncs with your iCloud, the name travels with the profile to your own iCloud and your other devices, as described below. You can rename a profile at any time: tap your profile at the top of Bezant's Settings.
-- Version 1.1 removes Sign in with Apple. Erasing all data (below) removes what 1.0 stored on the device and, when you erase with iCloud on for Bezant, strips the profile names from iCloud. Uninstalling removes what is on the device, but not the copy in your iCloud.
+- Version 1.2 removes Sign in with Apple. Erasing all data (below) removes what 1.0 stored on the device and, when you erase with iCloud on for Bezant, strips the profile names from iCloud. Uninstalling removes what is on the device, but not the copy in your iCloud.
 - Bezant stays in the list of apps using Sign in with Apple in your Apple ID settings until you remove it there.
 
 **Erasing your data:** Settings → Your data → *Erase all data* (in 1.0: Settings → Account → *Delete account & data*) removes every profile from your device. What happens to the copy in your iCloud depends on iCloud when you erase:
 
-- **Signed in to iCloud, with iCloud on for Bezant:** it erases Bezant's data on this iPhone and strips your data from the records synced to your iCloud.
-- **Not signed in to iCloud:** it erases Bezant's data on this iPhone only. Any copy synced to your iCloud earlier stays there until you erase again while signed in with iCloud on for Bezant, and it can sync back to this iPhone if you sign in to iCloud on it again.
-- **Signed in with iCloud on for Bezant, but iCloud can't be reached** (for example, you are offline): it stops, erases nothing, and asks you to try again.
-
-If you have turned iCloud off for Bezant (see below), turn it back on before you erase, so the erase can reach the copy in your iCloud.
+- **Signed in to iCloud, with iCloud on for Bezant:** it erases Bezant's data on this iPhone and strips your data from the records synced to your iCloud. If it cannot finish that, it erases nothing. Offline, it asks you to check the connection and try again. If iCloud doesn't report this iPhone's account as available, it asks you to check iCloud in the Settings app, then try again. If iCloud on this iPhone changes after you confirm, it asks you to start again.
+- **Not signed in to iCloud, or signed in with iCloud turned off for Bezant:** it erases Bezant's data on this iPhone only. This erase removes nothing from your iCloud. Profiles already synced there stay, and can sync back to this iPhone, until you erase again while signed in with iCloud on for Bezant.
 
 In version 1.0, *Delete account & data* erases nothing at all unless Bezant can reach your iCloud. Two more limits:
 
@@ -60,10 +57,10 @@ Bezant has no sync switch of its own. Whenever your iPhone is signed in to iClou
 - **Where:** Apple's CloudKit private database, scoped to your Apple ID.
 - **Who can see it:** You, and — depending on your iCloud settings — Apple. Your financial data is written to a **CloudKit asset** (older versions used an encrypted CloudKit field; those are read once and replaced). Assets are encrypted in transit and at rest. Whether they are *end-to-end* encrypted — meaning Apple holds no key that can read them — depends on your account: per [Apple's iCloud data security overview](https://support.apple.com/en-us/102651), "when you turn on Advanced Data Protection, third-party app data stored in iCloud Backup and CloudKit encrypted fields and assets are end-to-end encrypted". Without Advanced Data Protection, Apple can access this data. **We** never can, either way — we run no server and have no admin access to your container.
 - **What's stored:** The same data your device holds locally, serialized as JSON. It travels as an asset because a CloudKit record is capped at 1 MB and a long history outgrows that, at which point syncing would stop. Two small pieces of each record are *not* encrypted, because CloudKit needs them to list and order records: the profile's display name, and the timestamp of its last change.
-- **Older records:** Before we moved to encrypted fields, the app wrote this JSON into an ordinary (unencrypted) CloudKit field in your private database. If you synced before that change, a copy may still sit in that old field until the app next uploads that profile, at which point it is deleted. Erasing all data with iCloud on for Bezant (below) strips your data from those records.
+- **Older records:** A profile last saved by an older build can still sit in an encrypted CloudKit field. The next time this iPhone uploads that profile, it moves the data into the asset and clears the field. Erasing all data with iCloud on for Bezant clears that field and the asset. Bezant does not keep a separate unencrypted copy of the profile in iCloud: that field is not in the CloudKit schema.
 - **When it leaves your device:** Whenever you save changes (debounced), and on-demand via Settings → Sync now.
-- **How to turn it off:** turn iCloud off for Bezant in the iOS Settings app: tap your name, then **iCloud**, then **See All** next to *Saved to iCloud*, then tap Bezant and turn it off ([Apple's steps](https://support.apple.com/en-us/118225); older iOS versions label these screens differently). Apple says an app turned off there no longer connects with iCloud, so Bezant stops syncing. Bezant does not erase the copy already in your iCloud when you turn it off; to remove that, erase all data first (next point). If you have already turned it off, turn it back on for Bezant, then erase.
-- **How to delete:** Settings → Your data → *Erase all data* (in 1.0: Settings → Account → *Delete account & data*), done while you are signed in to iCloud with iCloud on for Bezant, strips your data and profile names from the synced records in your iCloud, leaving only an empty deletion marker (an id and two timestamps) so your other devices delete their copies too. If you erase while not signed in to iCloud, the iCloud copy stays until you erase again while signed in with iCloud on for Bezant. Uninstalling Bezant does not remove it.
+- **How to turn it off:** turn iCloud off for Bezant in the iOS Settings app: tap your name, then **iCloud**, then **See All** next to *Saved to iCloud*, then tap Bezant and turn it off ([Apple's steps](https://support.apple.com/en-us/118225); older iOS versions label these screens differently). Apple says an app turned off there no longer connects with iCloud, so your data exists only on your device. Bezant stops syncing. Bezant itself does not delete the copy already in your iCloud when you turn the switch off; if that copy is still there, erase all data while iCloud is on for Bezant to remove it (next point). If you have already turned it off, turn it back on for Bezant, then erase.
+- **How to delete:** Settings → Your data → *Erase all data* (in 1.0: Settings → Account → *Delete account & data*), done while you are signed in to iCloud with iCloud on for Bezant, strips your data and profile names from the synced records in your iCloud, leaving only an empty deletion marker (an id and two timestamps) so your other devices delete their copies too. If you erase while not signed in, or while iCloud is off for Bezant, this erase removes nothing from your iCloud. The copy stays, and can sync back, until you erase again while signed in with iCloud on for Bezant. Uninstalling Bezant does not remove it.
 
 We never see this data. We have no admin access to your CloudKit container.
 
