@@ -107,7 +107,9 @@ To stop syncing, turn iCloud off for Bezant in the iOS Settings app: tap your na
 
 ### Using Bezant on more than one device
 
-If you use Bezant on more than one device with the same iCloud account (two iPhones, or an iPhone and an iPad), update every one of them to version 1.2 before you add planned items to an event, and before you turn off **Counts toward goals** on a saving. Version 1.0 can't read a profile that has either: it keeps its own older copy of that profile and shows a notice under **iCloud sync** in Settings asking you to update the app. If you see it, update that device before you change that profile there. Editing that profile on 1.0 and updating later can lose either those edits or the newer data on your other devices — the planned items, or a saving kept out of your goals. Turning **Counts toward goals** off asks first and tells you to update the other devices to 1.2. Adding planned items does not ask.
+If you use Bezant on more than one device with the same iCloud account (another iPhone, or an iPad), update every device to 1.2 soon. A device still on 1.0 stops syncing a profile once it has planned items or a saving that doesn't count toward goals. It keeps its own copy of that profile and shows this under **iCloud sync** in Settings: "Sync problem: A profile in iCloud was saved by a newer version of Bezant. Update the app to keep syncing. Nothing on this device was changed or overwritten. Your data is safe on this device — tap Sync now to retry."
+
+Your planned items are kept when that device updates. A saving set not to count toward goals can start counting again, a planned item may need its payment linked again, and other changes made in the meantime, like expenses, can be replaced by whichever device saved last. Before the first saving on a profile is kept out of your goals, Bezant asks you to update the other devices to 1.2 first.
 
 ### How do I import expenses from a spreadsheet?
 
