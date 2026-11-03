@@ -107,9 +107,9 @@ To stop syncing, turn iCloud off for Bezant in the iOS Settings app: tap your na
 
 ### Using Bezant on more than one device
 
-If you use Bezant on more than one device with the same iCloud account (another iPhone, or an iPad), update every device to 1.2 soon. A device still on 1.0 stops syncing a profile once it has planned items or a saving that doesn't count toward goals. It keeps its own copy of that profile and shows this under **iCloud sync** in Settings: "Sync problem: A profile in iCloud was saved by a newer version of Bezant. Update the app to keep syncing. Nothing on this device was changed or overwritten. Your data is safe on this device — tap Sync now to retry."
+If you use Bezant on more than one device with the same iCloud account (another iPhone, or an iPad), update every device to 1.2 or later soon. A device still on 1.0 stops syncing a profile once it has planned items or a saving that doesn't count toward goals. It keeps its own copy of that profile and shows this under **iCloud sync** in Settings: "Sync problem: A profile in iCloud was saved by a newer version of Bezant. Update the app to keep syncing. Nothing on this device was changed or overwritten. Your data is safe on this device — tap Sync now to retry."
 
-Your planned items are kept when that device updates. A saving set not to count toward goals can start counting again, a planned item may need its payment linked again, and other changes made in the meantime, like expenses, can be replaced by whichever device saved last. Before the first saving on a profile is kept out of your goals, Bezant asks you to update the other devices to 1.2 first.
+Your planned items are kept when that device updates. After you update it, open Bezant on that device while it's online and check that **iCloud sync** in Settings shows no sync problem before you close the app. If it shows a sync problem, tap **Sync now**, so the planned items reach iCloud. A saving set not to count toward goals can start counting again, a planned item may need its payment linked again, and other changes made in the meantime, like expenses, can be replaced by whichever device saved last. Before the first saving on a profile is kept out of your goals, Bezant asks you to update the other devices to 1.2 or later first.
 
 ### How do I import expenses from a spreadsheet?
 
@@ -127,7 +127,7 @@ Settings → **Save backup to Files**. Saves a JSON snapshot you can keep in iCl
 
 ### How do I erase all my data?
 
-Settings → **Your data** → **Erase all data** (in 1.0: Settings → Account → Delete account & data). It removes every profile from this device and starts Bezant fresh. What happens to your iCloud copy depends on iCloud when you erase:
+Settings → **Your data** → **Erase all data** (in 1.0: Settings → Account → Delete account & data). While sample data is showing, Settings shows **Exit demo** in that place instead, so exit the demo first. It removes every profile from this device and starts Bezant fresh. What happens to your iCloud copy depends on iCloud when you erase:
 
 - **Signed in to iCloud, with iCloud on for Bezant:** it also strips your data from your iCloud. If it cannot finish that, it erases nothing. Offline, it asks you to check the connection and try again. If iCloud doesn't report this iPhone's account as available, it asks you to check iCloud in the Settings app, then try again. If iCloud on this iPhone changes after you confirm, it asks you to start again.
 - **Not signed in to iCloud, or signed in with iCloud turned off for Bezant:** it erases this iPhone only. This erase removes nothing from your iCloud. Profiles already synced there stay, and can sync back to this iPhone, until you erase again while signed in with iCloud on for Bezant.
