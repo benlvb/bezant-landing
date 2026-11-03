@@ -49,7 +49,7 @@
   <!-- subhead -->
   <text x="80" y="430" font-size="24" fill="#8B928B">Set goals, log spends in a tap, and watch every</text>
   <text x="80" y="463" font-size="24" xml:space="preserve"><tspan fill="#8B928B">goal’s date pull closer. </tspan><tspan fill="#E9ECE8" font-weight="500">Private by default — your</tspan></text>
-  <text x="80" y="496" font-size="24" font-weight="500" fill="#E9ECE8">data never leaves your phone.</text>
+  <text x="80" y="496" font-size="24" font-weight="500" fill="#E9ECE8">data stays on your iPhone and your own iCloud.</text>
 
   <!-- bottom: iOS button + url -->
   <rect x="80" y="506" width="248" height="52" rx="15" fill="#35E0A1"/>
