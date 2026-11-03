@@ -6,7 +6,7 @@ permalink: /privacy/
 
 # Privacy Policy
 
-**Effective date:** August 26, 2026
+**Effective date:** November 3, 2026
 **Last updated:** October 27, 2026 (version 1.2: no sign-in, how iCloud sync starts and stops, and Erase all data when iCloud is off)
 **App:** Bezant (iOS)
 **Contact:** ben@benliew.xyz
